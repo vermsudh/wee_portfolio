@@ -1,7 +1,7 @@
 import Navbar from './components/Navbar/Navbar'
 import Hero from './components/Hero/Hero'
 import About from './components/About/About'
-// import Services from './components/Services/Services'
+import Services from './components/Services/Services'
 // import Experience from './components/Experience/Experience'
 // import Testimonials from './components/Testimonials/Testimonials'
 // import Contact from './components/Contact/Contact'
@@ -15,7 +15,7 @@ function App() {
       <Navbar />
       <Hero />
       <About />
-      {/* <Services /> */}
+      <Services />
       {/* <Experience /> */}
       {/* <Testimonials /> */}
       {/* <Contact /> */}
