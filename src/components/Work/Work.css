@@ -1,0 +1,657 @@
+/* ─────────────────────────────────────────────
+   Fonts loaded via Google Fonts in index.html
+───────────────────────────────────────────── */
+
+:root {
+  --dark-green: #0A3323;
+  --moss:       #839958;
+  --beige:      #F7F4D5;
+  --rosy:       #D3968C;
+  --midnight:   #105666;
+  --beige-warm: #EDE9BE;
+  --beige-soft: #FDFCF2;
+}
+
+/* ── Section ──────────────────────────────── */
+.work-section {
+  background: #F7F4D5;
+  padding: 7rem 0 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.work-section::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -80px;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(131,153,88,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.work-section::after {
+  content: '';
+  position: absolute;
+  bottom: -60px;
+  left: -50px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(211,150,140,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Header ───────────────────────────────── */
+.work-header {
+  padding: 0 8%;
+  margin-bottom: 3.5rem;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.work-visible .work-header {
+  animation: phoneReveal 0.5s ease forwards;
+  animation-delay: 0s;
+}
+
+.work-eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #839958;
+  margin: 0 0 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.work-eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 1.5px;
+  background: #839958;
+  display: inline-block;
+}
+
+.work-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  color: #0A3323;
+  line-height: 1.0;
+  margin: 0;
+}
+
+.work-title-script {
+  font-family: 'Dancing Script', cursive;
+  color: #D3968C;
+  font-size: 1.15em;
+  display: block;
+  line-height: 1.0;
+}
+
+.work-header-note {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  color: rgba(10,51,35,0.5);
+  line-height: 1.7;
+  max-width: 240px;
+  text-align: right;
+  margin: 0;
+}
+
+/* ── Filter Tabs ──────────────────────────── */
+.work-filters {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0 8%;
+  margin-bottom: 3.5rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.work-visible .work-filters {
+  animation: phoneReveal 0.5s ease forwards;
+  animation-delay: 0s;
+}
+
+.filter-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.5rem 1.3rem;
+  border-radius: 100px;
+  border: 1.5px solid rgba(10,51,35,0.15);
+  background: transparent;
+  color: rgba(10,51,35,0.5);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.filter-btn:hover {
+  border-color: rgba(10,51,35,0.35);
+  color: #0A3323;
+  background: rgba(10,51,35,0.04);
+}
+
+.filter-btn.active {
+  background: #0A3323;
+  color: #F7F4D5;
+  border-color: #0A3323;
+  box-shadow: 0 4px 16px rgba(10,51,35,0.2);
+}
+
+/* ── Strip Outer ──────────────────────────── */
+.work-strip-outer {
+  position: relative;
+  overflow: hidden;
+}
+
+.work-strip-outer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  z-index: 5;
+  pointer-events: none;
+  background: linear-gradient(to right, #F7F4D5 0%, transparent 100%);
+}
+
+.work-strip-outer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100px;
+  z-index: 5;
+  pointer-events: none;
+  background: linear-gradient(to left, #F7F4D5 0%, transparent 100%);
+}
+
+/* ── Scroll Strip ─────────────────────────── */
+.work-strip {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem 8% 3rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+}
+
+.work-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.work-strip:active {
+  cursor: grabbing;
+}
+
+/* ── Phone Card ───────────────────────────── */
+.phone-card {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  transition: transform 0.35s cubic-bezier(.22,.68,0,1.2);
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.phone-card:hover {
+  transform: translateY(-8px);
+}
+
+/* ── Scroll Reveal ────────────────────────── */
+@keyframes phoneReveal {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.work-visible .phone-card:nth-child(1) { animation: phoneReveal 0.6s ease forwards; animation-delay: 0s;    }
+.work-visible .phone-card:nth-child(2) { animation: phoneReveal 0.6s ease forwards; animation-delay: 0.1s;  }
+.work-visible .phone-card:nth-child(3) { animation: phoneReveal 0.6s ease forwards; animation-delay: 0.18s; }
+.work-visible .phone-card:nth-child(4) { animation: phoneReveal 0.6s ease forwards; animation-delay: 0.26s; }
+.work-visible .phone-card:nth-child(5) { animation: phoneReveal 0.6s ease forwards; animation-delay: 0.34s; }
+.work-visible .phone-card:nth-child(6) { animation: phoneReveal 0.6s ease forwards; animation-delay: 0.42s; }
+
+/* ── Phone Shell ──────────────────────────── */
+.phone-shell {
+  position: relative;
+  width: 220px;
+  height: 440px;
+  background: #1a1a1a;
+  border-radius: 38px;
+  padding: 14px;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.08),
+    0 0 0 2px rgba(0,0,0,0.6),
+    0 30px 80px rgba(10,51,35,0.18),
+    0 8px 24px rgba(10,51,35,0.12);
+  transition: box-shadow 0.35s ease;
+}
+
+.phone-card:hover .phone-shell {
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.12),
+    0 0 0 2px rgba(0,0,0,0.6),
+    0 40px 100px rgba(10,51,35,0.25),
+    0 12px 32px rgba(10,51,35,0.18);
+}
+
+/* ── Side Buttons ─────────────────────────── */
+.phone-shell::before {
+  content: '';
+  position: absolute;
+  left: -3px;
+  top: 100px;
+  width: 3px;
+  height: 32px;
+  background: #2a2a2a;
+  border-radius: 2px 0 0 2px;
+  box-shadow: 0 44px 0 #2a2a2a, 0 88px 0 #2a2a2a;
+}
+
+.phone-shell::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  top: 140px;
+  width: 3px;
+  height: 48px;
+  background: #2a2a2a;
+  border-radius: 0 2px 2px 0;
+}
+
+/* ── Phone Screen & Content ───────────────── */
+.phone-screen {
+  width: 100%;
+  height: 100%;
+  background: #111;
+  border-radius: 26px;
+  overflow: hidden;
+  position: relative;
+}
+
+.phone-island {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 26px;
+  background: #000;
+  border-radius: 20px;
+  z-index: 10;
+}
+
+.phone-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Thumbnail State ──────────────────────── */
+.phone-thumbnail {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: opacity 0.3s;
+}
+
+.phone-thumbnail.hidden {
+  display: none;
+}
+
+.thumb-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.thumb-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+    rgba(0,0,0,0.8) 0%,
+    rgba(0,0,0,0.1) 50%,
+    transparent 100%);
+}
+
+/* ── Play Button ──────────────────────────── */
+.play-btn {
+  position: relative;
+  z-index: 3;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  border: 2px solid rgba(255,255,255,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-bottom: 1rem;
+}
+
+.play-btn:hover {
+  background: #D3968C;
+  border-color: #D3968C;
+  transform: scale(1.1);
+  box-shadow: 0 8px 24px rgba(211,150,140,0.5);
+}
+
+.play-icon {
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 16px solid white;
+  margin-left: 3px;
+}
+
+/* ── Tap Label ────────────────────────────── */
+.tap-label {
+  position: relative;
+  z-index: 3;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
+
+/* ── Phone Info Inner ─────────────────────── */
+.phone-info-inner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  z-index: 3;
+}
+
+.phone-brand-tag {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.18rem 0.6rem;
+  border-radius: 100px;
+  background: rgba(211,150,140,0.3);
+  color: #D3968C;
+  border: 1px solid rgba(211,150,140,0.4);
+  margin-bottom: 0.4rem;
+  backdrop-filter: blur(6px);
+}
+
+.phone-reel-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* ── Embed State ──────────────────────────── */
+.phone-embed {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.phone-embed.active {
+  display: block;
+}
+
+.embed-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.embed-ig-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.embed-ig-text {
+  color: rgba(255,255,255,0.9);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.embed-ig-text-sub {
+  color: rgba(255,255,255,0.5);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  text-align: center;
+  margin: 0;
+}
+
+.embed-url-hint {
+  color: rgba(255,255,255,0.25);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.58rem;
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  word-break: break-all;
+  margin: 0;
+}
+
+.embed-close-btn {
+  margin-top: 0.5rem;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.7);
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.embed-close-btn:hover {
+  background: rgba(211,150,140,0.2);
+  border-color: rgba(211,150,140,0.4);
+  color: #D3968C;
+}
+
+/* ── Phone Label Below Phone ──────────────── */
+.phone-label {
+  text-align: center;
+}
+
+.phone-label-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0A3323;
+  margin: 0 0 0.2rem 0;
+}
+
+.phone-label-cat {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #839958;
+  margin: 0;
+}
+
+/* ── Strip Navigation ─────────────────────── */
+.strip-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 0 8%;
+  margin-top: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.strip-arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(10,51,35,0.18);
+  background: transparent;
+  color: #0A3323;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s;
+}
+
+.strip-arrow:hover {
+  background: #0A3323;
+  color: #F7F4D5;
+  border-color: #0A3323;
+}
+
+/* ── Footer ───────────────────────────────── */
+.work-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem 8% 0;
+  margin-top: 3rem;
+  border-top: 1.5px solid rgba(10,51,35,0.1);
+  position: relative;
+  z-index: 2;
+}
+
+.work-footer-text {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-style: italic;
+  color: rgba(10,51,35,0.45);
+  margin: 0;
+}
+
+.work-footer-text em {
+  font-style: normal;
+  color: #D3968C;
+  font-weight: 600;
+}
+
+.work-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: #0A3323;
+  color: #F7F4D5;
+  padding: 0.9rem 2rem;
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.83rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  box-shadow: 0 6px 22px rgba(10,51,35,0.2);
+  transition: transform 0.25s, box-shadow 0.25s;
+  white-space: nowrap;
+}
+
+.work-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(10,51,35,0.28);
+}
+
+/* ── Responsive — below 768px ─────────────── */
+@media (max-width: 768px) {
+  .work-section {
+    padding: 5rem 0;
+  }
+
+  .work-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+    padding: 0 5%;
+  }
+
+  .work-header-note {
+    text-align: left;
+    max-width: 100%;
+  }
+
+  .work-filters {
+    padding: 0 5%;
+  }
+
+  .work-strip {
+    padding: 2rem 5% 3rem;
+    gap: 1.4rem;
+  }
+
+  .phone-shell {
+    width: 180px;
+    height: 360px;
+    border-radius: 32px;
+  }
+
+  .work-footer {
+    flex-direction: column;
+    gap: 1.4rem;
+    padding: 2.5rem 5% 0;
+  }
+
+  .work-cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
