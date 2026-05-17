@@ -5,7 +5,7 @@ import Services from './components/Services/Services'
 import Experience from './components/Experience/Experience'
 import Brands from './components/Brands/brands' 
 import Work from './components/Work/Work'
-// import Testimonials from './components/Testimonials/Testimonials'
+import Testimonials from './components/Testimonials/Testimonials'
 // import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
 // import { Analytics } from "@vercel/analytics/react"
@@ -21,7 +21,7 @@ function App() {
       <Experience />
       <Brands />
       <Work />
-      {/* <Testimonials /> */}
+      <Testimonials />
       {/* <Contact /> */}
       <Footer />
       {/* <Analytics /> */}

@@ -1,0 +1,550 @@
+/* ─────────────────────────────────────────────
+   Fonts loaded via Google Fonts in index.html
+───────────────────────────────────────────── */
+
+:root {
+  --dark-green: #0A3323;
+  --moss:       #839958;
+  --beige:      #F7F4D5;
+  --rosy:       #D3968C;
+  --midnight:   #105666;
+  --beige-warm: #EDE9BE;
+}
+
+/* ── Section ──────────────────────────────── */
+.t-section {
+  background: #105666;
+  padding: 7rem 8% 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.t-section::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -80px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(131,153,88,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.t-section::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: -60px;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(211,150,140,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Header ───────────────────────────────── */
+.t-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 4.5rem;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+.t-eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #839958;
+  margin: 0 0 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.t-eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 1.5px;
+  background: #839958;
+  display: inline-block;
+}
+
+.t-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  color: #F7F4D5;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.t-title-script {
+  font-family: 'Dancing Script', cursive;
+  color: #D3968C;
+  font-size: 1.1em;
+  display: block;
+  line-height: 1.0;
+}
+
+.t-header-note {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  color: rgba(247,244,213,0.4);
+  line-height: 1.7;
+  max-width: 220px;
+  text-align: right;
+  margin: 0;
+}
+
+/* ── Featured Card ────────────────────────── */
+.t-featured {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 4rem;
+  padding: 3.5rem 4rem;
+  background: rgba(247,244,213,0.04);
+  border: 1px solid rgba(247,244,213,0.09);
+  border-radius: 32px;
+  overflow: hidden;
+  cursor: default;
+  transition: background 0.35s;
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+.t-featured:hover {
+  background: rgba(247,244,213,0.07);
+}
+
+.t-featured::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 4rem;
+  right: 4rem;
+  height: 2px;
+  background: linear-gradient(to right,
+    #D3968C, rgba(211,150,140,0.2), transparent);
+}
+
+/* ── Big Quote Watermark ──────────────────── */
+.t-big-quote {
+  position: absolute;
+  top: -30px;
+  left: 2.5rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 16rem;
+  font-weight: 900;
+  color: rgba(211,150,140,0.06);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* ── Featured Inner Layout ────────────────── */
+.t-featured-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* ── Featured Quote ───────────────────────── */
+.t-featured-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.75rem);
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(247,244,213,0.9);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.t-featured-quote em {
+  font-style: normal;
+  color: #D3968C;
+  font-weight: 600;
+}
+
+/* ── Featured Meta ────────────────────────── */
+.t-featured-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.55rem;
+  flex-shrink: 0;
+  min-width: 160px;
+}
+
+.t-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,
+    rgba(131,153,88,0.35) 0%,
+    rgba(211,150,140,0.35) 100%);
+  border: 2px solid rgba(247,244,213,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.t-stars {
+  display: flex;
+  gap: 0.12rem;
+}
+
+.t-star {
+  color: #D3968C;
+  font-size: 0.72rem;
+}
+
+.t-featured-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #F7F4D5;
+  text-align: right;
+  margin: 0;
+}
+
+.t-featured-role {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #839958;
+  text-align: right;
+  margin: 0;
+}
+
+.t-featured-brand {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba(247,244,213,0.28);
+  text-align: right;
+  margin: 0;
+}
+
+/* ── Carousel Section ─────────────────────── */
+.t-carousel-section {
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+/* ── Carousel Header ──────────────────────── */
+.t-carousel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.t-carousel-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(247,244,213,0.22);
+  margin: 0;
+}
+
+.t-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.t-nav-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(247,244,213,0.15);
+  background: transparent;
+  color: rgba(247,244,213,0.45);
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s;
+}
+
+.t-nav-btn:hover {
+  background: rgba(247,244,213,0.08);
+  color: #F7F4D5;
+  border-color: rgba(247,244,213,0.3);
+}
+
+.t-nav-btn:disabled {
+  opacity: 0.25;
+  cursor: default;
+  pointer-events: none;
+}
+
+.t-nav-counter {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.8rem;
+  color: rgba(247,244,213,0.28);
+}
+
+.t-nav-counter span {
+  color: #F7F4D5;
+  font-weight: 700;
+}
+
+/* ── Carousel Outer ───────────────────────── */
+.t-carousel-outer {
+  position: relative;
+  overflow: hidden;
+}
+
+.t-carousel-outer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(to right, #105666 0%, transparent 100%);
+}
+
+.t-carousel-outer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 60px;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(to left, #105666 0%, transparent 100%);
+}
+
+/* ── Carousel Track ───────────────────────── */
+.t-carousel-track {
+  display: flex;
+  gap: 1.4rem;
+  transition: transform 0.55s cubic-bezier(.22,.68,0,1.2);
+  padding: 0.5rem 0 1rem;
+  will-change: transform;
+}
+
+/* ── Carousel Card ────────────────────────── */
+.t-card {
+  flex: 0 0 320px;
+  background: rgba(247,244,213,0.04);
+  border: 1px solid rgba(247,244,213,0.08);
+  border-radius: 24px;
+  padding: 1.8rem 1.6rem;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+  transition:
+    background 0.3s,
+    transform 0.35s,
+    border-color 0.3s,
+    box-shadow 0.35s;
+}
+
+.t-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 1.5rem;
+  right: 1.5rem;
+  height: 1.5px;
+  background: linear-gradient(to right,
+    transparent, rgba(211,150,140,0.3), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.t-card:hover {
+  background: rgba(247,244,213,0.07);
+  transform: translateY(-4px);
+  border-color: rgba(247,244,213,0.14);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+}
+
+.t-card:hover::before {
+  opacity: 1;
+}
+
+/* ── Card Content ─────────────────────────── */
+.t-card-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.92rem;
+  font-style: italic;
+  color: rgba(247,244,213,0.75);
+  line-height: 1.7;
+  margin: 0 0 1.4rem 0;
+  position: relative;
+}
+
+.t-card-quote::before {
+  content: open-quote;
+  font-size: 2.5rem;
+  color: rgba(211,150,140,0.2);
+  line-height: 0;
+  position: relative;
+  top: 14px;
+  margin-right: 4px;
+}
+
+.t-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(247,244,213,0.06);
+}
+
+.t-card-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,
+    rgba(131,153,88,0.3) 0%,
+    rgba(211,150,140,0.3) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.t-card-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #F7F4D5;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.t-card-brand {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #D3968C;
+  margin: 0;
+}
+
+.t-card-stars {
+  display: flex;
+  gap: 0.1rem;
+  margin-top: 0.2rem;
+}
+
+.t-card-star {
+  color: #D3968C;
+  font-size: 0.62rem;
+}
+
+/* ── Progress Dots ────────────────────────── */
+.t-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 1.8rem;
+}
+
+.t-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(247,244,213,0.15);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.t-dot.active {
+  width: 20px;
+  border-radius: 3px;
+  background: #D3968C;
+}
+
+/* ── Scroll Reveal ────────────────────────── */
+@keyframes tReveal {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.t-visible .t-header {
+  animation: tReveal 0.7s ease forwards;
+  animation-delay: 0s;
+}
+
+.t-visible .t-featured {
+  animation: tReveal 0.7s ease forwards;
+  animation-delay: 0.15s;
+}
+
+.t-visible .t-carousel-section {
+  animation: tReveal 0.7s ease forwards;
+  animation-delay: 0.3s;
+}
+
+/* ── Responsive — below 768px ─────────────── */
+@media (max-width: 768px) {
+  .t-section {
+    padding: 5rem 5% 4rem;
+  }
+
+  .t-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+  }
+
+  .t-header-note {
+    text-align: left;
+    max-width: 100%;
+  }
+
+  .t-featured {
+    padding: 2rem 1.5rem;
+  }
+
+  .t-featured-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .t-featured-meta {
+    align-items: flex-start;
+  }
+
+  .t-featured-name,
+  .t-featured-role,
+  .t-featured-brand {
+    text-align: left;
+  }
+
+  .t-card {
+    flex: 0 0 80vw;
+  }
+}
