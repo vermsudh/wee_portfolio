@@ -1,0 +1,443 @@
+/* ─────────────────────────────────────────────
+   Fonts loaded via Google Fonts in index.html
+───────────────────────────────────────────── */
+
+:root {
+  --dark-green: #0A3323;
+  --moss:       #839958;
+  --beige:      #F7F4D5;
+  --rosy:       #D3968C;
+  --midnight:   #105666;
+  --beige-warm: #EDE9BE;
+}
+
+/* ── Section ──────────────────────────────── */
+.contact-section {
+  background: #D3968C;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  left: -80px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  z-index: 0;
+  background: radial-gradient(circle, rgba(10,51,35,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.contact-section::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  right: 55%;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  z-index: 0;
+  background: radial-gradient(circle, rgba(247,244,213,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Left Column ──────────────────────────── */
+.contact-left {
+  padding: 7rem 5% 6rem 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Eyebrow ──────────────────────────────── */
+.c-eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(247,244,213,0.6);
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.7rem;
+}
+
+.c-eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 1.5px;
+  background: rgba(247,244,213,0.5);
+  display: inline-block;
+}
+
+/* ── Title ────────────────────────────────── */
+.c-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 4.5vw, 4rem);
+  font-weight: 700;
+  color: #F7F4D5;
+  line-height: 1.05;
+  margin-bottom: 0.3rem;
+}
+
+.c-title-script {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 700;
+  color: #0A3323;
+  line-height: 1.0;
+  display: block;
+}
+
+/* ── Subtitle ─────────────────────────────── */
+.c-sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  color: rgba(247,244,213,0.75);
+  line-height: 1.7;
+  margin: 1.4rem 0 2.5rem;
+  max-width: 380px;
+}
+
+.c-sub strong {
+  color: #F7F4D5;
+  font-weight: 600;
+}
+
+/* ── Form ─────────────────────────────────── */
+.c-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 440px;
+}
+
+.c-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.c-input-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.c-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(247,244,213,0.6);
+}
+
+/* ── Inputs ───────────────────────────────── */
+.c-input,
+.c-textarea,
+.c-select {
+  width: 100%;
+  padding: 0.9rem 1.1rem;
+  border-radius: 14px;
+  border: 1.5px solid rgba(247,244,213,0.2);
+  background: rgba(247,244,213,0.1);
+  color: #F7F4D5;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.92rem;
+  outline: none;
+  transition: border-color 0.25s, background 0.25s;
+  backdrop-filter: blur(8px);
+  box-sizing: border-box;
+}
+
+.c-input::placeholder,
+.c-textarea::placeholder {
+  color: rgba(247,244,213,0.35);
+}
+
+.c-input:focus,
+.c-textarea:focus,
+.c-select:focus {
+  border-color: rgba(247,244,213,0.55);
+  background: rgba(247,244,213,0.15);
+}
+
+.c-textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.c-select {
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.c-select option {
+  background: #D3968C;
+  color: #F7F4D5;
+}
+
+/* ── WhatsApp Button ──────────────────────── */
+.c-btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  background: #0A3323;
+  color: #F7F4D5;
+  padding: 1rem 2.2rem;
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 28px rgba(10,51,35,0.3);
+  transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+  margin-top: 0.5rem;
+  align-self: flex-start;
+}
+
+.c-btn-whatsapp:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(10,51,35,0.38);
+  background: #0d4029;
+}
+
+.wa-icon {
+  width: 22px;
+  height: 22px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  flex-shrink: 0;
+}
+
+/* ── Quick Links ──────────────────────────── */
+.c-quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.c-quick-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(247,244,213,0.55);
+  text-decoration: none;
+  padding: 0.4rem 0.95rem;
+  border-radius: 100px;
+  border: 1px solid rgba(247,244,213,0.2);
+  backdrop-filter: blur(6px);
+  background: rgba(247,244,213,0.06);
+  transition: all 0.25s;
+}
+
+.c-quick-link:hover {
+  color: #F7F4D5;
+  border-color: rgba(247,244,213,0.4);
+  background: rgba(247,244,213,0.12);
+}
+
+/* ── Right Column ─────────────────────────── */
+.contact-right {
+  position: relative;
+  overflow: hidden;
+}
+
+.c-photo {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 15%;
+  transition: transform 0.6s ease;
+}
+
+.c-photo-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right,
+      #D3968C 0%,
+      rgba(211,150,140,0.4) 18%,
+      transparent 40%),
+    linear-gradient(to top,
+      rgba(211,150,140,0.6) 0%,
+      transparent 40%),
+    linear-gradient(to bottom,
+      rgba(211,150,140,0.3) 0%,
+      transparent 20%);
+}
+
+/* ── Availability Badge ───────────────────── */
+.c-available {
+  position: absolute;
+  top: 2.5rem;
+  right: 2.5rem;
+  background: rgba(10,51,35,0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(131,153,88,0.3);
+  border-radius: 100px;
+  padding: 0.45rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 3;
+}
+
+.c-available-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #839958;
+  animation: availPulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes availPulse {
+  0%, 100% { opacity: 1;   transform: scale(1);   }
+  50%       { opacity: 0.4; transform: scale(0.8); }
+}
+
+.c-available-text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #839958;
+}
+
+/* ── Response Badge ───────────────────────── */
+.c-response {
+  position: absolute;
+  top: 5.5rem;
+  right: 2.5rem;
+  background: rgba(247,244,213,0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(247,244,213,0.15);
+  border-radius: 100px;
+  padding: 0.38rem 0.9rem;
+  z-index: 3;
+}
+
+.c-response-text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(247,244,213,0.45);
+}
+
+/* ── Photo Info Card ──────────────────────── */
+.c-photo-card {
+  position: absolute;
+  bottom: 3rem;
+  right: 2.5rem;
+  background: rgba(247,244,213,0.1);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(247,244,213,0.2);
+  border-radius: 24px;
+  padding: 1.4rem 1.8rem;
+  z-index: 3;
+}
+
+.c-photo-card-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(247,244,213,0.5);
+  margin: 0 0 0.5rem 0;
+}
+
+.c-photo-card-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #F7F4D5;
+  margin: 0 0 0.25rem 0;
+}
+
+.c-photo-card-role {
+  font-family: 'Dancing Script', cursive;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(247,244,213,0.7);
+  margin: 0;
+}
+
+/* ── Responsive — below 900px ─────────────── */
+@media (max-width: 900px) {
+  .contact-section {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-left {
+    padding: 5rem 5% 4rem;
+  }
+
+  .contact-right {
+    height: 60vw;
+    min-height: 320px;
+  }
+
+  .c-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .c-photo-overlay {
+    background:
+      linear-gradient(to top, rgba(211,150,140,0.8) 0%, transparent 50%),
+      linear-gradient(to bottom, rgba(211,150,140,0.4) 0%, transparent 25%);
+  }
+}
+
+/* ── Responsive — below 480px ─────────────── */
+@media (max-width: 480px) {
+  .c-title {
+    font-size: 2rem;
+  }
+
+  .c-title-script {
+    font-size: 2.4rem;
+  }
+
+  .c-photo-card {
+    right: 1rem;
+    bottom: 1.5rem;
+  }
+
+  .c-available {
+    right: 1rem;
+    top: 1.5rem;
+  }
+
+  .c-response {
+    right: 1rem;
+    top: 4.5rem;
+  }
+}
