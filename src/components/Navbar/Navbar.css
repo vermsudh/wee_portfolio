@@ -171,6 +171,23 @@
   .navbar__hamburger {
     display: flex;
   }
+
+  /* Always solid on mobile — no transparent navbar */
+  .navbar {
+    background: rgba(247, 244, 213, 0.97);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 1px 0 rgba(10, 51, 35, 0.1);
+  }
+
+  /* Logo goes dark since background is light */
+  .navbar__logo {
+    color: var(--dark-green);
+  }
+
+  .navbar__hamburger span {
+    background: var(--dark-green);
+  }
 }
 
 

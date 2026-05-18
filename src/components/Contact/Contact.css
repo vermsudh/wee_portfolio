@@ -391,6 +391,8 @@
 }
 
 /* ── Responsive — below 900px ─────────────── */
+// ...existing code...
+
 @media (max-width: 900px) {
   .contact-section {
     grid-template-columns: 1fr;
@@ -400,9 +402,20 @@
     padding: 5rem 5% 4rem;
   }
 
+  /* ── Fix: image shows below form with proper height ── */
   .contact-right {
-    height: 60vw;
-    min-height: 320px;
+    height: 70vw;
+    min-height: 380px;
+    max-height: 480px;
+    /* ensure it's not clipped */
+    overflow: visible;
+    position: relative;
+  }
+
+  /* re-apply overflow hidden only on inner photo */
+  .c-photo {
+    overflow: hidden;
+    border-radius: 0;
   }
 
   .c-form-row {
@@ -413,6 +426,22 @@
     background:
       linear-gradient(to top, rgba(211,150,140,0.8) 0%, transparent 50%),
       linear-gradient(to bottom, rgba(211,150,140,0.4) 0%, transparent 25%);
+  }
+
+  /* Push badges inward so they don't clip */
+  .c-available {
+    top: 1.2rem;
+    right: 1.2rem;
+  }
+
+  .c-response {
+    top: 4rem;
+    right: 1.2rem;
+  }
+
+  .c-photo-card {
+    bottom: 1.2rem;
+    right: 1.2rem;
   }
 }
 
