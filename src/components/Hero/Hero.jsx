@@ -74,8 +74,8 @@ export default function Hero() {
 
       {/* 7. Social links */}
       <div className="hero-socials">
-        <a href="#" className="hsoc">Instagram</a>
-        <a href="#" className="hsoc">YouTube</a>
+        <a href="https://www.instagram.com/bas.kar.vanshikaa/" className="hsoc">Instagram</a>
+        <a href="https://www.youtube.com/@baskarvanshikaa" className="hsoc">YouTube</a>
         <a href="mailto:vanshikaverma0201@gmail.com" className="hsoc">Email</a>
       </div>
     </section>

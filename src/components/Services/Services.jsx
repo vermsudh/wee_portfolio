@@ -30,8 +30,8 @@ export default function Services() {
         <div className="services-header-left">
           <p className="services-eyebrow">What I Do</p>
           <h2 className="services-title">
-            Services
-            <span className="services-title-script">Offered</span>
+            Where I
+            <span className="services-title-script"> Shine</span>
           </h2>
         </div>
         <p className="services-header-note">

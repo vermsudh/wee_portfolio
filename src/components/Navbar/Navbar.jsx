@@ -28,7 +28,7 @@ export default function Navbar() {
     <>
       <nav className={`navbar${solid ? " solid" : ""}`}>
         <a href="#hero" className="navbar__logo" onClick={closeMenu}>
-          Vanshika.
+          Wee.
         </a>
 
         {/* Desktop links */}

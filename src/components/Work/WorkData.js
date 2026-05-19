@@ -7,7 +7,7 @@ export const reels = [
     tag: "Ayuvya Ayurveda",
     labelCat: "Reels",
     bgGradient: "linear-gradient(160deg, #2d5a3d 0%, #1a3d2a 50%, #0d2418 100%)",
-    instaUrl: "YOUR_INSTAGRAM_REEL_URL_1"
+    instaUrl: "https://www.instagram.com/p/DRMqGq6ifeB/"
   },
   {
     id: 2,

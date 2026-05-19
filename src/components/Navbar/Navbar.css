@@ -1,6 +1,10 @@
 /* ─────────────────────────────────────────────
    NAVBAR  —  Vanshika Verma Portfolio
    Fonts loaded via Google Fonts in index.html
+   
+   ARCHITECTURE: Mobile-first.
+   Base styles = mobile (< 768px).
+   Desktop overrides live inside min-width queries.
 ───────────────────────────────────────────── */
 
 :root {
@@ -11,56 +15,47 @@
   --midnight:   #105666;
 }
 
-/* ── Base nav ─────────────────────────────── */
+/* ═══════════════════════════════════════════
+   BASE NAV  (mobile-first — applies to ALL sizes)
+═══════════════════════════════════════════ */
 .navbar {
-  position: fixed;
+  position: fixed !important;
   top: 0;
   left: 0;
   width: 100%;
-  height: 72px;
-  z-index: 100;
-  display: flex;
+  height: 64px;
+  z-index: 1000 !important;   /* raised — some Hero sections use z-index 999 */
+  display: flex !important;
   align-items: center;
   justify-content: space-between;
-  padding: 0 5.5%;
-  background: transparent;
+  padding: 0 4.5%;
+  background: #F7F4D5 !important;   /* solid, no alpha — nothing bleeds through */
+  box-shadow: 0 1px 0 rgba(10, 51, 35, 0.12);
   transition: background 0.5s ease, box-shadow 0.5s ease;
 }
 
-/* ── Solid / scrolled state ───────────────── */
-.navbar.solid {
-  background: rgba(247, 244, 213, 0.96);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 1px 0 rgba(10, 51, 35, 0.1);
-}
-
-/* ── Logo ─────────────────────────────────── */
+/* ═══════════════════════════════════════════
+   LOGO
+═══════════════════════════════════════════ */
 .navbar__logo {
   font-family: "Dancing Script", cursive;
-  font-size: 1.95rem;
+  font-size: 1.6rem;
   font-weight: 700;
-  color: var(--beige);
+  color: #0A3323 !important;   /* hardcoded — no variable cascade risk */
   text-decoration: none;
-  transition: color 0.5s ease;
   white-space: nowrap;
 }
 
-.navbar.solid .navbar__logo {
-  color: var(--dark-green);
-}
-
-/* ── Desktop link list ────────────────────── */
+/* ═══════════════════════════════════════════
+   DESKTOP NAV LINKS — hidden on mobile by default
+═══════════════════════════════════════════ */
 .navbar__links {
-  display: flex;
-  align-items: center;
-  gap: 2.4rem;
+  display: none !important;   /* hidden on mobile, shown via min-width query below */
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-/* ── Individual link ──────────────────────── */
 .navbar__link {
   position: relative;
   font-family: "DM Sans", sans-serif;
@@ -68,13 +63,9 @@
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(247, 244, 213, 0.7);
-  text-decoration: none;
-  transition: color 0.5s ease;
-}
-
-.navbar.solid .navbar__link {
   color: rgba(10, 51, 35, 0.55);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 /* underline sweep on hover */
@@ -88,38 +79,42 @@
   background: var(--rosy);
   transition: width 0.35s ease;
 }
+.navbar__link:hover::after { width: 100%; }
 
-.navbar__link:hover::after {
-  width: 100%;
-}
-
-/* ── Hamburger ────────────────────────────── */
+/* ═══════════════════════════════════════════
+   HAMBURGER BUTTON
+   !important on display and background so nothing
+   from Tailwind preflight or Hero CSS can override
+═══════════════════════════════════════════ */
 .navbar__hamburger {
-  display: none;
+  display: flex !important;   /* MUST be flex on mobile — this is the critical line */
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   gap: 5px;
-  background: none;
-  border: none;
+  background: transparent !important;
+  border: none !important;
   cursor: pointer;
-  padding: 4px;
+  padding: 10px;
+  min-width: 44px;   /* Apple HIG minimum tap target */
+  min-height: 44px;
+  margin-right: -10px;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;  /* removes iOS blue tap flash */
 }
 
+/* The three bars */
 .navbar__hamburger span {
-  display: block;
-  width: 26px;
-  height: 2px;
-  background: var(--beige);
-  border-radius: 2px;
-  transition: background 0.5s ease, transform 0.3s ease, opacity 0.3s ease;
+  display: block !important;
+  width: 24px;
+  height: 2.5px;
+  background: #0A3323 !important;  /* hardcoded dark green — cannot be overridden */
+  border-radius: 3px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  pointer-events: none;
 }
 
-.navbar.solid .navbar__hamburger span {
-  background: var(--dark-green);
-}
-
-/* Hamburger → X animation */
+/* Animate to X when menu is open */
 .navbar__hamburger.open span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
@@ -131,20 +126,25 @@
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* ── Mobile menu ──────────────────────────── */
+/* ═══════════════════════════════════════════
+   MOBILE MENU DRAWER
+═══════════════════════════════════════════ */
 .navbar__mobile-menu {
-  position: fixed;
-  top: 72px;
+  position: fixed !important;
+  top: 64px;
   left: 0;
   width: 100%;
-  display: flex;
+  display: flex !important;
   flex-direction: column;
-  gap: 1.4rem;
-  padding: 2rem 5.5%;
-  background: rgba(247, 244, 213, 0.97);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  z-index: 99;
+  background: #F7F4D5;
+  box-shadow: 0 8px 24px rgba(10, 51, 35, 0.12);
+  z-index: 999 !important;
+  animation: menuSlideDown 0.22s ease forwards;
+}
+
+@keyframes menuSlideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0);    }
 }
 
 .navbar__mobile-link {
@@ -153,174 +153,108 @@
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(10, 51, 35, 0.6);
+  color: rgba(10, 51, 35, 0.7);
   text-decoration: none;
-  transition: color 0.3s ease;
+  padding: 1.15rem 5%;
+  border-bottom: 1px solid rgba(10, 51, 35, 0.08);
+  display: block;
+  width: 100%;
+  transition: color 0.2s ease, background 0.2s ease;
 }
 
-.navbar__mobile-link:hover {
-  color: var(--dark-green);
+.navbar__mobile-link:last-child {
+  border-bottom: none;
 }
 
-/* ── Responsive ───────────────────────────── */
-@media (max-width: 768px) {
-  .navbar__links {
-    display: none;
-  }
+.navbar__mobile-link:hover,
+.navbar__mobile-link:active {
+  color: #0A3323;
+  background: rgba(10, 51, 35, 0.05);
+}
 
-  .navbar__hamburger {
-    display: flex;
-  }
+/* ═══════════════════════════════════════════
+   DESKTOP OVERRIDES  (min-width: 768px)
+   Everything below here is DESKTOP-only.
+   Mobile never sees these rules.
+═══════════════════════════════════════════ */
+@media (min-width: 768px) {
 
-  /* Always solid on mobile — no transparent navbar */
+  /* On desktop: navbar starts transparent over the Hero image */
   .navbar {
-    background: rgba(247, 244, 213, 0.97);
+    background: transparent !important;
+    box-shadow: none;
+    height: 72px;
+    padding: 0 5%;
+    z-index: 100 !important;
+  }
+
+  /* Scrolled: goes solid beige */
+  .navbar.solid {
+    background: rgba(247, 244, 213, 0.96) !important;
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     box-shadow: 0 1px 0 rgba(10, 51, 35, 0.1);
   }
 
-  /* Logo goes dark since background is light */
+  /* Logo: beige on transparent, dark-green when solid */
   .navbar__logo {
-    color: var(--dark-green);
+    color: var(--beige) !important;
+    font-size: 1.85rem;
+  }
+  .navbar.solid .navbar__logo {
+    color: var(--dark-green) !important;
   }
 
-  .navbar__hamburger span {
-    background: var(--dark-green);
-  }
-}
-
-
-// ...existing code...
-
-/* ── Responsive ───────────────────────────── */
-
-/* ── Small phones (≤ 480px) ───────────────── */
-@media (max-width: 480px) {
-  .navbar {
-    padding: 0 4.5%;
-    height: 64px;
-  }
-
-  .navbar__logo {
-    font-size: 1.6rem;
-  }
-
+  /* Show desktop links */
   .navbar__links {
-    display: none;
-  }
-
-  .navbar__hamburger {
-    display: flex;
-  }
-
-  .navbar__mobile-menu {
-    top: 64px;
-    gap: 1.2rem;
-    padding: 1.6rem 4.5%;
-  }
-
-  .navbar__mobile-link {
-    font-size: 0.82rem;
-  }
-}
-
-/* ── Large phones (481px – 767px) ─────────── */
-@media (min-width: 481px) and (max-width: 767px) {
-  .navbar {
-    padding: 0 5%;
-    height: 68px;
-  }
-
-  .navbar__logo {
-    font-size: 1.75rem;
-  }
-
-  .navbar__links {
-    display: none;
-  }
-
-  .navbar__hamburger {
-    display: flex;
-  }
-
-  .navbar__mobile-menu {
-    top: 68px;
-    padding: 1.8rem 5%;
-  }
-}
-
-/* ── Tablets (768px – 1024px) ─────────────── */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .navbar {
-    padding: 0 5%;
-    height: 72px;
-  }
-
-  .navbar__logo {
-    font-size: 1.8rem;
-  }
-
-  .navbar__links {
-    display: flex;
-    gap: 1.8rem;
-  }
-
-  .navbar__link {
-    font-size: 0.72rem;
-  }
-
-  .navbar__hamburger {
-    display: none;
-  }
-}
-
-/* ── Small desktops (1025px – 1280px) ─────── */
-@media (min-width: 1025px) and (max-width: 1280px) {
-  .navbar {
-    padding: 0 5%;
-  }
-
-  .navbar__links {
+    display: flex !important;
+    align-items: center;
     gap: 2rem;
   }
 
+  /* Link colour: light on transparent, dark on solid */
   .navbar__link {
-    font-size: 0.75rem;
+    color: rgba(247, 244, 213, 0.75);
+  }
+  .navbar.solid .navbar__link {
+    color: rgba(10, 51, 35, 0.55);
+  }
+
+  /* Hide hamburger — desktop doesn't need it */
+  .navbar__hamburger {
+    display: none !important;
+  }
+
+  /* Safety net — mobile menu should never render on desktop */
+  .navbar__mobile-menu {
+    display: none !important;
   }
 }
 
-/* ── Large desktops (1281px+) ─────────────── */
+/* ── Tablet-specific link sizing ───────────── */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .navbar__links { gap: 1.6rem; }
+  .navbar__link  { font-size: 0.72rem; }
+}
+
+/* ── Small desktops ─────────────────────────── */
+@media (min-width: 1025px) {
+  .navbar        { padding: 0 5%; }
+  .navbar__links { gap: 2rem; }
+  .navbar__link  { font-size: 0.75rem; }
+}
+
+/* ── Large desktops ─────────────────────────── */
 @media (min-width: 1281px) {
-  .navbar {
-    padding: 0 5.5%;
-  }
-
-  .navbar__links {
-    gap: 2.4rem;
-  }
-
-  .navbar__link {
-    font-size: 0.77rem;
-  }
+  .navbar        { padding: 0 5.5%; }
+  .navbar__links { gap: 2.4rem; }
+  .navbar__link  { font-size: 0.77rem; }
 }
 
-/* ── Ultra-wide (1601px+) ─────────────────── */
+/* ── Ultra-wide ─────────────────────────────── */
 @media (min-width: 1601px) {
-  .navbar {
-    padding: 0 7%;
-    height: 80px;
-  }
-
-  .navbar__logo {
-    font-size: 2.1rem;
-  }
-
-  .navbar__links {
-    gap: 2.8rem;
-  }
-
-  .navbar__link {
-    font-size: 0.8rem;
-  }
+  .navbar        { padding: 0 7%; height: 80px; }
+  .navbar__logo  { font-size: 2.1rem; }
+  .navbar__links { gap: 2.8rem; }
+  .navbar__link  { font-size: 0.8rem; }
 }
