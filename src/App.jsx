@@ -8,7 +8,7 @@ import Work from './components/Work/Work'
 import Testimonials from './components/Testimonials/Testimonials'
 import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
-// import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react"
 // import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
       <Testimonials />
       <Contact />
       <Footer />
-      {/* <Analytics /> */}
+      <Analytics />
       {/* <SpeedInsights /> */}
     </>
   )
