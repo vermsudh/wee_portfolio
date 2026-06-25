@@ -30,8 +30,8 @@ export default function Services() {
         <div className="services-header-left">
           <p className="services-eyebrow">What I Do</p>
           <h2 className="services-title">
-            Where I
-            <span className="services-title-script"> Shine</span>
+            What I bring to
+            <span className="services-title-script"> the table</span>
           </h2>
         </div>
         <p className="services-header-note">
@@ -52,9 +52,9 @@ export default function Services() {
             </div>
             <h3 className="card-title">Content Creation</h3>
             <p className="card-desc">
-              Shot, edited and delivered with a strong aesthetic POV. From
-              concept to final cut — scripting, filming, editing and
-              publishing across platforms.
+              End-to-end content creation, from ideation and scripting to
+              filming, editing, and publishing. Specialising in short-form
+              content that drives engagement and brand visibility.
             </p>
             <div className="card-tags">
               <span className="card-tag">Reels</span>
@@ -80,9 +80,9 @@ export default function Services() {
           </div>
           <h3 className="card-title">Social Media Management</h3>
           <p className="card-desc">
-            End-to-end page management — content calendars, scheduling,
-            engagement and analytics. Managed up to 4 brand pages
-            simultaneously.
+            Managed multiple brand accounts across different niches,
+            handling content planning, publishing, community engagement,
+            and performance tracking.
           </p>
           <div className="card-tags">
             <span className="card-tag">Instagram</span>
@@ -95,17 +95,17 @@ export default function Services() {
         <div className="bento-card card-3">
           <p className="card-num">03</p>
           <div className="card-icon-wrap">
-            <span className="card-icon">🎯</span>
+            <span className="card-icon">🎨</span>
           </div>
-          <h3 className="card-title">Brand Strategy</h3>
+          <h3 className="card-title">Creative Direction</h3>
           <p className="card-desc">
-            Psychology-backed storytelling. I understand why audiences
-            engage and build campaigns that don&apos;t just look good —
-            they convert.
+            From concept development to execution, I help shape the
+            creative vision behind campaigns, ensuring content aligns with
+            brand goals and audience preferences.
           </p>
           <div className="card-tags">
-            <span className="card-tag">Storytelling</span>
-            <span className="card-tag">Campaigns</span>
+            <span className="card-tag">Concept</span>
+            <span className="card-tag">Brand Vision</span>
           </div>
         </div>
 
@@ -116,17 +116,18 @@ export default function Services() {
             <div className="card-icon-wrap">
               <span className="card-icon">✨</span>
             </div>
-            <h3 className="card-title">Modeling &amp; On-Camera</h3>
+            <h3 className="card-title">Modelling</h3>
             <p className="card-desc">
-              Experienced in multi-location brand shoots for ethnic wear and
-              jewellery campaigns. Comfortable with styling direction,
-              voiceovers and on-camera performance.
+              Experienced in brand campaigns, UGC content, product
+              showcases, voiceovers, and on-camera storytelling across
+              beauty, lifestyle, jewellery, and fashion categories. Have
+              done multiple short films and acting projects.
             </p>
             <div className="card-tags">
-              <span className="card-tag">Ethnic Wear</span>
-              <span className="card-tag">Jewellery</span>
-              <span className="card-tag">Lifestyle</span>
+              <span className="card-tag">UGC</span>
+              <span className="card-tag">Campaigns</span>
               <span className="card-tag">Voiceover</span>
+              <span className="card-tag">Acting</span>
             </div>
           </div>
           <div className="card-4-right">

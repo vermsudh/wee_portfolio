@@ -19,13 +19,12 @@ export default function Contact() {
         <p className="c-eyebrow">Get In Touch</p>
 
         <h2 className="c-title">
-          Let's work <span className="c-title-script">together!</span>
+          Let's collab instead of work <span className="c-title-script">together</span>
         </h2>
 
         <p className="c-sub">
-          Have a brand story to tell? Looking for a{' '}
-          <strong>content creator, social media manager</strong>
-          {' '}or model? I'd love to hear about your project.
+          I think i'd be a great fit for your brand, hit me up with work,
+          lets do something great yayay
         </p>
 
         <form className="c-form" onSubmit={handleWhatsApp}>

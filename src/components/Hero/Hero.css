@@ -218,6 +218,20 @@
   font-weight: 600;
 }
 
+/* e2. Subtext */
+.hero-subtext {
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(0.85rem, 1.4vw, 0.98rem);
+  font-weight: 400;
+  color: rgba(247, 244, 213, 0.6);
+  line-height: 1.65;
+  max-width: 460px;
+  margin: 0.7rem 0 0;
+  opacity: 0;
+  animation: riseUp 0.7s ease forwards;
+  animation-delay: 0.87s;
+}
+
 /* f. Pills */
 .hero-pills {
   display: flex;
@@ -227,6 +241,17 @@
   opacity: 0;
   animation: riseUp 0.7s ease forwards;
   animation-delay: 0.92s;
+}
+
+/* f2. Skills row */
+.hero-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.6rem;
+  opacity: 0;
+  animation: riseUp 0.7s ease forwards;
+  animation-delay: 0.97s;
 }
 
 .rpill {

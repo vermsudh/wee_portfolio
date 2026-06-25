@@ -48,15 +48,28 @@ export default function Hero() {
 
         {/* e. Tagline */}
         <p className="hero-tagline">
-          Turning brands into <em>stories</em> —<br />
-          and feeds into experiences.
+          content creator, social media manager &amp;{' '}
+          <em>all things fun</em>
+        </p>
+
+        {/* e2. Subtext */}
+        <p className="hero-subtext">
+          Creating content that builds communities, drives engagement, and
+          helps brands stand out.
         </p>
 
         {/* f. Role pills */}
         <div className="hero-pills">
-          <span className="rpill">✦ Content Creator</span>
-          <span className="rpill">✦ Social Media Manager</span>
-          <span className="rpill">✦ Model</span>
+          <span className="rpill">✦ Brand Collaborations</span>
+          <span className="rpill">✦ Social Media Strategy &amp; Content Creation</span>
+        </div>
+
+        {/* f2. Skills row */}
+        <div className="hero-skills">
+          <span className="rpill">Acting</span>
+          <span className="rpill">Social Media Management</span>
+          <span className="rpill">UGC Creator</span>
+          <span className="rpill">Model</span>
         </div>
 
         {/* g. CTAs */}

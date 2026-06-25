@@ -53,17 +53,13 @@ export default function About() {
         <div className="about-left" ref={leftRef}>
           <p className="about-col-heading">Who I Am</p>
           <p className="about-para">
-            Psychology graduate from Delhi University, CGPA 8.0. I believe
-            psychology is the secret weapon of great content — I understand{' '}
-            <strong>WHY</strong> people stop scrolling.
-          </p>
-          <p className="about-para">
-            I don&apos;t just create content. I craft experiences that make
-            your audience feel something — and then act on it.
+            hi im vanshika, a psychology graduate from university of delhi.
+            i love being infront of the camera, getting stories to life,
+            dancing, acting and building brands
           </p>
           <div className="about-stats">
             <div className="stat-box">
-              <div className="stat-num">6+</div>
+              <div className="stat-num">20+</div>
               <div className="stat-label">Brands Worked With</div>
             </div>
             <div className="stat-box">
@@ -71,7 +67,7 @@ export default function About() {
               <div className="stat-label">CGPA · DU Psychology</div>
             </div>
             <div className="stat-box">
-              <div className="stat-num">2+</div>
+              <div className="stat-num">3</div>
               <div className="stat-label">Years of Experience</div>
             </div>
           </div>
@@ -94,15 +90,9 @@ export default function About() {
         <div className="about-right" ref={rightRef}>
           <p className="about-col-heading">What Drives Me</p>
           <p className="about-para">
-            From <strong>Ayurveda brands</strong> to{' '}
-            <strong>F&amp;B outlets</strong> to{' '}
-            <strong>jewellery campaigns</strong> — I&apos;ve shaped digital
-            identities across industries, shooting, editing, strategising,
-            and stepping in front of the camera myself.
-          </p>
-          <p className="about-para">
-            Off-screen? Choreographer. Theatre performer. Delhi café
-            hunter. 🌿
+            Ive worked across various different niches like beauty,
+            wellness, health, F&amp;B, lifestyle, fashion &amp; jewellery
+            and more to come :)
           </p>
           <div className="about-traits">
             <span className="trait">🎬 Reel Directing</span>

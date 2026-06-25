@@ -23,8 +23,7 @@ export default function Work() {
           </h2>
         </div>
         <p className="work-header-note">
-          Tap any reel to watch it play. Each piece is a brand story
-          told through content.
+          me doing what im best at
         </p>
       </div>
 
