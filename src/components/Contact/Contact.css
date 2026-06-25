@@ -16,9 +16,9 @@
   background: #D3968C;
   position: relative;
   overflow: hidden;
-  min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  min-height: auto;
 }
 
 .contact-section::before {
@@ -49,7 +49,7 @@
 
 /* ── Left Column ──────────────────────────── */
 .contact-left {
-  padding: 7rem 5% 6rem 8%;
+  padding: 6rem 6% 5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -447,26 +447,65 @@
 
 /* ── Responsive — below 480px ─────────────── */
 @media (max-width: 480px) {
+  .contact-section {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-left {
+    padding: 4rem 5% 3rem;
+    min-height: auto;
+  }
+
+  .contact-right {
+    height: 50vh;
+    min-height: 300px;
+  }
+
   .c-title {
-    font-size: 2rem;
+    font-size: clamp(1.8rem, 8vw, 2rem);
   }
 
   .c-title-script {
-    font-size: 2.4rem;
+    font-size: clamp(2rem, 10vw, 2.4rem);
+  }
+
+  .c-sub {
+    font-size: 0.88rem;
+    margin: 1rem 0 1.8rem;
+  }
+
+  .c-form {
+    max-width: 100%;
+  }
+
+  .c-btn-whatsapp {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .c-quick-links {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .c-quick-link {
+    width: 100%;
+    justify-content: center;
   }
 
   .c-photo-card {
     right: 1rem;
-    bottom: 1.5rem;
+    bottom: 1rem;
+    padding: 1rem 1.2rem;
   }
 
   .c-available {
     right: 1rem;
-    top: 1.5rem;
+    top: 1rem;
   }
 
   .c-response {
     right: 1rem;
-    top: 4.5rem;
+    top: 3.5rem;
   }
 }

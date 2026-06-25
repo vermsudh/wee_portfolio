@@ -29,6 +29,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 4.5%;
+  box-sizing: border-box;   /* without this, the % padding adds on top of width:100% and pushes the rightmost links off-screen */
   background: #F7F4D5 !important;   /* solid, no alpha — nothing bleeds through */
   box-shadow: 0 1px 0 rgba(10, 51, 35, 0.12);
   transition: background 0.5s ease, box-shadow 0.5s ease;
@@ -95,10 +96,10 @@
   background: transparent !important;
   border: none !important;
   cursor: pointer;
-  padding: 10px;
-  min-width: 44px;   /* Apple HIG minimum tap target */
-  min-height: 44px;
-  margin-right: -10px;
+  padding: 12px;
+  min-width: 48px;   /* Apple HIG minimum tap target (48px for mobile) */
+  min-height: 48px;
+  margin-right: -12px;
   outline: none;
   -webkit-tap-highlight-color: transparent;  /* removes iOS blue tap flash */
 }
@@ -155,11 +156,14 @@
   text-transform: uppercase;
   color: rgba(10, 51, 35, 0.7);
   text-decoration: none;
-  padding: 1.15rem 5%;
+  padding: 1.2rem 5%;
   border-bottom: 1px solid rgba(10, 51, 35, 0.08);
   display: block;
   width: 100%;
   transition: color 0.2s ease, background 0.2s ease;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
 }
 
 .navbar__mobile-link:last-child {

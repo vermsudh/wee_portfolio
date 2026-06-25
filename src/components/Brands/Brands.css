@@ -200,3 +200,46 @@
     font-size: 0.85rem;
   }
 }
+
+/* ── Small phones (≤ 480px) ───────────────── */
+@media (max-width: 480px) {
+  .brands-section {
+    padding: 2.5rem 0;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+  }
+
+  .brands-section::before,
+  .brands-section::after {
+    width: 50px;
+  }
+
+  .brands-label {
+    padding: 1.5rem 5% 0;
+    font-size: 0.62rem;
+  }
+
+  .marquee-outer {
+    padding: 1rem 0 1.5rem;
+  }
+
+  .brand-chip {
+    padding: 0 1.2rem;
+    gap: 0.5rem;
+  }
+
+  .brand-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 0.85rem;
+    border-radius: 8px;
+  }
+
+  .brand-name {
+    font-size: 0.78rem;
+  }
+
+  .brand-type {
+    font-size: 0.58rem;
+  }
+}

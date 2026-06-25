@@ -227,12 +227,12 @@
 /* ── Responsive — below 768px ─────────────── */
 @media (max-width: 768px) {
   .site-footer {
-    padding: 2.5rem 5%;
+    padding: 2rem 5%;
   }
 
   .footer-inner {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 2rem;
   }
 
   .footer-right {
@@ -246,5 +246,123 @@
 
   .footer-right .footer-nav-label {
     text-align: left;
+  }
+
+  .footer-logo {
+    font-size: 1.6rem;
+  }
+
+  .footer-copy {
+    font-size: 0.68rem;
+  }
+
+  .footer-location {
+    font-size: 0.65rem;
+  }
+
+  .footer-nav-label {
+    font-size: 0.6rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .footer-nav-link {
+    font-size: 0.78rem;
+  }
+
+  .footer-social-icon {
+    font-size: 0.78rem;
+  }
+
+  .footer-social-text {
+    font-size: 0.78rem;
+  }
+
+  .footer-social-arrow {
+    font-size: 0.62rem;
+  }
+}
+
+/* ── Small phones (≤ 480px) ───────────────── */
+@media (max-width: 480px) {
+  .site-footer {
+    padding: 1.5rem 4.5%;
+  }
+
+  .site-footer::before {
+    width: 250px;
+    height: 250px;
+    top: -60px;
+    right: -40px;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .footer-left {
+    gap: 0.5rem;
+  }
+
+  .footer-logo {
+    font-size: 1.4rem;
+  }
+
+  .footer-copy {
+    font-size: 0.65rem;
+    line-height: 1.4;
+  }
+
+  .footer-location {
+    font-size: 0.6rem;
+    gap: 0.35rem;
+  }
+
+  .footer-location-dot {
+    width: 4px;
+    height: 4px;
+  }
+
+  .footer-nav {
+    gap: 0;
+  }
+
+  .footer-nav-label {
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.6rem;
+  }
+
+  .footer-nav-list {
+    gap: 0.4rem;
+  }
+
+  .footer-nav-link {
+    font-size: 0.75rem;
+    font-weight: 400;
+  }
+
+  .footer-right {
+    gap: 0;
+  }
+
+  .footer-social-list {
+    gap: 0.4rem;
+  }
+
+  .footer-social-link {
+    gap: 0.5rem;
+  }
+
+  .footer-social-icon {
+    font-size: 0.75rem;
+  }
+
+  .footer-social-text {
+    font-size: 0.75rem;
+  }
+
+  .footer-social-arrow {
+    font-size: 0.6rem;
   }
 }

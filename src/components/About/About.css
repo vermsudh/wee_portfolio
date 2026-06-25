@@ -302,20 +302,67 @@
 /* ── Small phones (≤ 480px) ───────────────── */
 @media (max-width: 480px) {
   .about-section {
-    padding: 4rem 4.5%;
+    padding: 3.5rem 4.5%;
+  }
+
+  .about-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .about-grid {
+    gap: 2rem;
   }
 
   .about-title {
-    font-size: clamp(1.75rem, 8vw, 2.4rem);
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
+  }
+
+  .about-col-heading {
+    font-size: 0.68rem;
+  }
+
+  .about-para {
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+
+  .about-stats {
+    gap: 0.65rem;
+    margin-top: 1rem;
+  }
+
+  .stat-box {
+    padding: 0.7rem 1rem;
+  }
+
+  .stat-num {
+    font-size: 1.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.62rem;
   }
 
   .about-photo {
-    width: 220px;
-    height: 295px;
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    aspect-ratio: 220 / 295;
   }
 
   .about-photo-wrap {
-    width: 220px;
+    width: 100%;
+    max-width: 220px;
+  }
+
+  .about-photo-ring {
+    inset: -10px;
+    border-width: 1px;
+  }
+
+  .about-badge {
+    font-size: 0.65rem;
+    padding: 0.45rem 1rem;
   }
 
   .about-traits {
@@ -323,12 +370,8 @@
   }
 
   .trait {
-    font-size: 0.68rem;
-    padding: 0.28rem 0.72rem;
-  }
-
-  .stat-num {
-    font-size: 1.6rem;
+    font-size: 0.65rem;
+    padding: 0.25rem 0.65rem;
   }
 }
 
