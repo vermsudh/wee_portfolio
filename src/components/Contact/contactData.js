@@ -8,8 +8,8 @@ export const contactInfo = {
   responseTime: "Replies within 24hrs",
   remote: "Open to remote collaborations",
   whatsappMessage: "Hi Vanshika! I'd love to work with you.",
-  instagram: "https://instagram.com",
-  youtube: "https://youtube.com",
+  instagram: "https://www.instagram.com/bas.kar.vanshikaa/",
+  youtube: "https://www.youtube.com/@baskarvanshikaa/",
 }
 
 export const services = [

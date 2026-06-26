@@ -608,8 +608,55 @@
   box-shadow: 0 6px 28px rgba(10,51,35,0.3);
 }
 
-/* ── Responsive — below 900px ─────────────── */
+/* ══════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+   1. Laptops      — 901 px → 1280 px
+   2. Tablets      — 769 px → 900 px
+   3. Large phones — 481 px → 768 px
+   4. Mobile       — ≤ 480 px
+   5. Small phones — ≤ 360 px
+══════════════════════════════════════════════ */
 
+/* ── 1. Laptops (901 px – 1280 px) ─────────── */
+@media (min-width: 901px) and (max-width: 1280px) {
+  .contact-left {
+    padding: 5rem 5% 4rem;
+  }
+
+  .c-title {
+    font-size: clamp(2rem, 3.5vw, 3.2rem);
+  }
+
+  .c-title-script {
+    font-size: clamp(2.4rem, 4vw, 3.6rem);
+  }
+
+  .c-available {
+    top: 2rem;
+    right: 2rem;
+  }
+
+  .c-response {
+    top: 4.6rem;
+    right: 2rem;
+  }
+
+  .c-photo-card {
+    bottom: 2rem;
+    right: 2rem;
+    padding: 1.1rem 1.4rem;
+  }
+
+  .c-photo-card-name {
+    font-size: 1rem;
+  }
+
+  .c-photo-card-role {
+    font-size: 0.85rem;
+  }
+}
+
+/* ── 2. Tablets (≤ 900 px) ──────────────────── */
 @media (max-width: 900px) {
   .contact-section {
     grid-template-columns: 1fr;
@@ -619,18 +666,15 @@
     padding: 5rem 5% 4rem;
   }
 
-  /* ── Fix: image shows below form with proper height ── */
   .contact-right {
-    height: 70vw;
-    min-height: 380px;
-    max-height: 480px;
-    overflow: visible;
+    height: 68vw;
+    min-height: 360px;
+    max-height: 500px;
+    overflow: hidden;
     position: relative;
   }
 
-  /* re-apply overflow hidden only on inner photo */
   .c-photo {
-    overflow: hidden;
     border-radius: 0;
   }
 
@@ -640,11 +684,10 @@
 
   .c-photo-overlay {
     background:
-      linear-gradient(to top, rgba(211,150,140,0.8) 0%, transparent 50%),
-      linear-gradient(to bottom, rgba(211,150,140,0.4) 0%, transparent 25%);
+      linear-gradient(to top,  rgba(211,150,140,0.75) 0%, transparent 50%),
+      linear-gradient(to bottom, rgba(211,150,140,0.35) 0%, transparent 25%);
   }
 
-  /* Push badges inward so they don't clip */
   .c-available {
     top: 1.2rem;
     right: 1.2rem;
@@ -660,32 +703,91 @@
     right: 1.2rem;
   }
 
-  /* Form panel fills available width at tablet */
   .c-form-panel {
     max-width: 100%;
   }
 
-  /* Intent cards: keep 3 columns but tighten padding */
   .c-intent-card {
     padding: 1.1rem 0.6rem;
     min-height: 88px;
   }
 }
 
-/* ── Responsive — below 480px ─────────────── */
-@media (max-width: 480px) {
-  .contact-section {
-    grid-template-columns: 1fr;
+/* ── 3. Large phones (481 px – 768 px) ─────── */
+@media (max-width: 768px) {
+  .contact-right {
+    height: 62vw;
+    min-height: 300px;
+    max-height: 420px;
   }
 
+  /* Badges shift to the LEFT so they don't overlap the photo subject */
+  .c-available {
+    top: 1rem;
+    left: 1rem;
+    right: auto;
+    padding: 0.35rem 0.8rem;
+    gap: 0.4rem;
+  }
+
+  .c-available-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .c-available-text {
+    font-size: 0.6rem;
+    letter-spacing: 0.07em;
+  }
+
+  .c-response {
+    top: 3.4rem;
+    left: 1rem;
+    right: auto;
+    padding: 0.3rem 0.75rem;
+  }
+
+  .c-response-text {
+    font-size: 0.56rem;
+  }
+
+  /* Photo card: compact but readable */
+  .c-photo-card {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.9rem 1.1rem;
+    border-radius: 18px;
+  }
+
+  .c-photo-card-label {
+    font-size: 0.58rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .c-photo-card-name {
+    font-size: 0.95rem;
+  }
+
+  .c-photo-card-role {
+    font-size: 0.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 170px;
+  }
+}
+
+/* ── 4. Mobile (≤ 480 px) ───────────────────── */
+@media (max-width: 480px) {
   .contact-left {
     padding: 4rem 5% 3rem;
     min-height: auto;
   }
 
   .contact-right {
-    height: 50vh;
-    min-height: 300px;
+    height: 74vw;
+    min-height: 260px;
+    max-height: 360px;
   }
 
   .c-title {
@@ -710,24 +812,65 @@
     gap: 0.6rem;
   }
 
-  .c-photo-card {
-    right: 1rem;
-    bottom: 1rem;
-    padding: 1rem 1.2rem;
+  /* Badges — LEFT side, extra compact */
+  .c-available {
+    top: 0.85rem;
+    left: 0.85rem;
+    right: auto;
+    padding: 0.28rem 0.65rem;
+    gap: 0.35rem;
   }
 
-  .c-available {
-    right: 1rem;
-    top: 1rem;
+  .c-available-dot {
+    width: 5px;
+    height: 5px;
+  }
+
+  .c-available-text {
+    font-size: 0.55rem;
+    letter-spacing: 0.06em;
   }
 
   .c-response {
-    right: 1rem;
-    top: 3.5rem;
+    top: 3rem;
+    left: 0.85rem;
+    right: auto;
+    padding: 0.25rem 0.65rem;
   }
 
-  /* Form panel: reduce blur slightly for mobile perf,
-     but keep it visually readable */
+  .c-response-text {
+    font-size: 0.52rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* Photo card — compact, bottom-right corner */
+  .c-photo-card {
+    bottom: 0.85rem;
+    right: 0.85rem;
+    padding: 0.7rem 0.9rem;
+    border-radius: 14px;
+  }
+
+  .c-photo-card-label {
+    font-size: 0.52rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.25rem;
+  }
+
+  .c-photo-card-name {
+    font-size: 0.88rem;
+    margin-bottom: 0.12rem;
+  }
+
+  .c-photo-card-role {
+    font-size: 0.72rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 145px;
+  }
+
+  /* Form panel */
   .c-form-panel {
     max-width: 100%;
     padding: 1.6rem 1.4rem;
@@ -735,7 +878,7 @@
     -webkit-backdrop-filter: blur(16px);
   }
 
-  /* Intent cards collapse to single column on small phones */
+  /* Intent cards: single column on mobile */
   .c-intent-grid {
     grid-template-columns: 1fr;
     gap: 0.65rem;
@@ -753,7 +896,6 @@
     font-size: 0.85rem;
   }
 
-  /* Chips: slightly smaller padding, still ≥44px touch target height */
   .c-chip {
     padding: 0.45rem 0.85rem;
     font-size: 0.78rem;
@@ -766,5 +908,71 @@
   .c-btn-next {
     width: 100%;
     justify-content: center;
+  }
+}
+
+/* ── 5. Very small phones (≤ 360 px) ────────── */
+@media (max-width: 360px) {
+  .contact-left {
+    padding: 3rem 4% 2.5rem;
+  }
+
+  .contact-right {
+    height: 78vw;
+    min-height: 230px;
+    max-height: 300px;
+  }
+
+  .c-title {
+    font-size: clamp(1.6rem, 7.5vw, 1.9rem);
+  }
+
+  .c-title-script {
+    font-size: clamp(1.8rem, 9vw, 2.1rem);
+  }
+
+  .c-available {
+    top: 0.7rem;
+    left: 0.7rem;
+    padding: 0.22rem 0.55rem;
+  }
+
+  .c-available-text {
+    font-size: 0.5rem;
+  }
+
+  .c-response {
+    top: 2.7rem;
+    left: 0.7rem;
+    padding: 0.2rem 0.55rem;
+  }
+
+  .c-response-text {
+    font-size: 0.48rem;
+  }
+
+  .c-photo-card {
+    bottom: 0.7rem;
+    right: 0.7rem;
+    padding: 0.6rem 0.75rem;
+    border-radius: 12px;
+  }
+
+  .c-photo-card-name {
+    font-size: 0.8rem;
+  }
+
+  .c-photo-card-role {
+    font-size: 0.65rem;
+    max-width: 120px;
+  }
+
+  .c-form-panel {
+    padding: 1.3rem 1.1rem;
+  }
+
+  .c-intent-card {
+    padding: 0.75rem 0.9rem;
+    min-height: 48px;
   }
 }
