@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { Film, CalendarDays, Mic, Camera, Target, Scissors } from 'lucide-react'
 import './About.css'
 import aboutImg from '../../assets/about_me.png'
 
@@ -95,12 +96,12 @@ export default function About() {
             and more to come :)
           </p>
           <div className="about-traits">
-            <span className="trait">🎬 Reel Directing</span>
-            <span className="trait">📅 Content Calendars</span>
-            <span className="trait">🎤 Voiceover</span>
-            <span className="trait">💃 On-Camera Talent</span>
-            <span className="trait">🧠 Brand Strategy</span>
-            <span className="trait">✂️ Video Editing</span>
+            <span className="trait"><Film size={13} strokeWidth={1.8} /> Reel Directing</span>
+            <span className="trait"><CalendarDays size={13} strokeWidth={1.8} /> Content Calendars</span>
+            <span className="trait"><Mic size={13} strokeWidth={1.8} /> Voiceover</span>
+            <span className="trait"><Camera size={13} strokeWidth={1.8} /> On-Camera Talent</span>
+            <span className="trait"><Target size={13} strokeWidth={1.8} /> Brand Strategy</span>
+            <span className="trait"><Scissors size={13} strokeWidth={1.8} /> Video Editing</span>
           </div>
         </div>
 
