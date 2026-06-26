@@ -33,7 +33,7 @@ export default function Footer() {
           <p className="footer-nav-label">Connect</p>
           <ul className="footer-social-list">
             <li>
-              <a className="footer-social-link" href="https://instagram.com"
+              <a className="footer-social-link" href="https://www.instagram.com/bas.kar.vanshikaa/"
                 target="_blank" rel="noreferrer">
                 <span className="footer-social-icon"><FaInstagram /></span>
                 <span className="footer-social-text">Instagram</span>
@@ -41,7 +41,7 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a className="footer-social-link" href="https://youtube.com"
+              <a className="footer-social-link" href="https://www.youtube.com/@baskarvanshikaa"
                 target="_blank" rel="noreferrer">
                 <span className="footer-social-icon"><FaYoutube /></span>
                 <span className="footer-social-text">YouTube</span>
