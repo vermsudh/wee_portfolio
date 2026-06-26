@@ -3,10 +3,10 @@ import "./Navbar.css";
 
 const NAV_LINKS = [
   { label: "About",        href: "#about"        },
+  { label: "Work",         href: "#work"         },
+  { label: "Brands",       href: "#brands"       },
   { label: "Services",     href: "#services"     },
   { label: "Experience",   href: "#experience"   },
-  { label: "Brands",       href: "#brands"       },
-  { label: "Work",         href: "#work"         },
   { label: "Testimonials", href: "#testimonials" },
   { label: "Contact",      href: "#contact"      },
 ];

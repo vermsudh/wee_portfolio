@@ -1,3 +1,4 @@
+import { FaInstagram, FaYoutube, FaEnvelope, FaPhone } from 'react-icons/fa'
 import './Footer.css'
 
 export default function Footer() {
@@ -8,7 +9,7 @@ export default function Footer() {
         {/* Column 1 — Left */}
         <div className="footer-left">
           <a className="footer-logo" href="#hero">Vanshika.</a>
-          <p className="footer-copy">© 2026 Vanshika Verma</p>
+          <p className="footer-copy">Made with ♥ by Sudhanshu Verma</p>
           <p className="footer-location">
             <span className="footer-location-dot" />
             New Delhi, India
@@ -34,7 +35,7 @@ export default function Footer() {
             <li>
               <a className="footer-social-link" href="https://instagram.com"
                 target="_blank" rel="noreferrer">
-                <span className="footer-social-icon">📷</span>
+                <span className="footer-social-icon"><FaInstagram /></span>
                 <span className="footer-social-text">Instagram</span>
                 <span className="footer-social-arrow">↗</span>
               </a>
@@ -42,7 +43,7 @@ export default function Footer() {
             <li>
               <a className="footer-social-link" href="https://youtube.com"
                 target="_blank" rel="noreferrer">
-                <span className="footer-social-icon">▶</span>
+                <span className="footer-social-icon"><FaYoutube /></span>
                 <span className="footer-social-text">YouTube</span>
                 <span className="footer-social-arrow">↗</span>
               </a>
@@ -50,15 +51,15 @@ export default function Footer() {
             <li>
               <a className="footer-social-link"
                 href="mailto:vanshikaverma0201@gmail.com">
-                <span className="footer-social-icon">✉</span>
+                <span className="footer-social-icon"><FaEnvelope /></span>
                 <span className="footer-social-text">Email</span>
                 <span className="footer-social-arrow">↗</span>
               </a>
             </li>
             <li>
               <a className="footer-social-link" href="tel:+919205435221">
-                <span className="footer-social-icon">📞</span>
-                <span className="footer-social-text">+91 92054 35221</span>
+                <span className="footer-social-icon"><FaPhone /></span>
+                <span className="footer-social-text">Phone</span>
                 <span className="footer-social-arrow">↗</span>
               </a>
             </li>
