@@ -390,8 +390,225 @@
   margin: 0;
 }
 
+/* ─────────────────────────────────────────────
+   Multi-step form panel
+───────────────────────────────────────────── */
+
+/* Glass panel — rosy-tinted, deliberately prominent */
+.c-form-panel {
+  position: relative;
+  max-width: 440px;
+  padding: 2rem 2.2rem;
+  border-radius: 24px;
+  background: rgba(211, 150, 140, 0.32);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid rgba(247, 244, 213, 0.35);
+  /* outer lift shadow + inner top-edge highlight in one declaration */
+  box-shadow:
+    0 20px 50px rgba(10, 51, 35, 0.18),
+    inset 0 1px 0 rgba(247, 244, 213, 0.28);
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+/* ── Progress dots ───────────────────────── */
+.c-progress-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.c-progress-dot {
+  display: block;
+  height: 6px;
+  border-radius: 100px;
+  background: rgba(247, 244, 213, 0.22);
+  transition: width 0.3s ease, background 0.3s ease;
+  width: 6px;
+}
+
+.c-progress-dot.done {
+  background: rgba(247, 244, 213, 0.45);
+  width: 6px;
+}
+
+.c-progress-dot.active {
+  background: #F7F4D5;
+  width: 18px;       /* elongated pill for the active step */
+}
+
+/* ── Back button ─────────────────────────── */
+.c-step-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: rgba(247, 244, 213, 0.5);
+  transition: color 0.2s;
+  align-self: flex-start;
+}
+
+.c-step-back:hover {
+  color: rgba(247, 244, 213, 0.85);
+}
+
+/* ── Intent picker (step 0) ──────────────── */
+.c-intent-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+}
+
+.c-intent-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 1.3rem 0.75rem;
+  border-radius: 16px;
+  background: rgba(247, 244, 213, 0.07);
+  border: 1px solid rgba(247, 244, 213, 0.18);
+  cursor: pointer;
+  transition: background 0.22s, border-color 0.22s;
+  /* ensures tap target is comfortably tall */
+  min-height: 100px;
+}
+
+.c-intent-card:hover {
+  background: rgba(247, 244, 213, 0.14);
+  border-color: rgba(247, 244, 213, 0.38);
+}
+
+.c-intent-icon {
+  color: #F7F4D5;
+  flex-shrink: 0;
+}
+
+.c-intent-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: rgba(247, 244, 213, 0.85);
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* ── Branch question steps ───────────────── */
+.c-step-question-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.c-step-question {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #F7F4D5;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* ── Option chips ────────────────────────── */
+.c-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.c-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(247, 244, 213, 0.8);
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  border: 1px solid rgba(247, 244, 213, 0.22);
+  background: rgba(247, 244, 213, 0.07);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  /* touch target */
+  min-height: 36px;
+}
+
+.c-chip:hover {
+  background: rgba(247, 244, 213, 0.13);
+  border-color: rgba(247, 244, 213, 0.38);
+  color: #F7F4D5;
+}
+
+/* Selected chip: inverted — dark-green fill, beige text */
+.c-chip.selected {
+  background: #0A3323;
+  border-color: #0A3323;
+  color: #F7F4D5;
+}
+
+.c-chip-check {
+  flex-shrink: 0;
+  color: #F7F4D5;
+}
+
+/* ── "Next" button (multi-select steps) ──── */
+.c-btn-next {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: rgba(10, 51, 35, 0.75);
+  color: #F7F4D5;
+  padding: 0.75rem 1.6rem;
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border: 1px solid rgba(10, 51, 35, 0.9);
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background 0.2s, opacity 0.2s;
+}
+
+.c-btn-next:hover:not(.disabled) {
+  background: #0A3323;
+}
+
+.c-btn-next.disabled,
+.c-btn-next:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+/* ── Final step ──────────────────────────── */
+.c-final-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Disabled WhatsApp button state */
+.c-btn-whatsapp:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 6px 28px rgba(10,51,35,0.3);
+}
+
 /* ── Responsive — below 900px ─────────────── */
-// ...existing code...
 
 @media (max-width: 900px) {
   .contact-section {
@@ -407,7 +624,6 @@
     height: 70vw;
     min-height: 380px;
     max-height: 480px;
-    /* ensure it's not clipped */
     overflow: visible;
     position: relative;
   }
@@ -443,6 +659,17 @@
     bottom: 1.2rem;
     right: 1.2rem;
   }
+
+  /* Form panel fills available width at tablet */
+  .c-form-panel {
+    max-width: 100%;
+  }
+
+  /* Intent cards: keep 3 columns but tighten padding */
+  .c-intent-card {
+    padding: 1.1rem 0.6rem;
+    min-height: 88px;
+  }
 }
 
 /* ── Responsive — below 480px ─────────────── */
@@ -474,23 +701,13 @@
     margin: 1rem 0 1.8rem;
   }
 
-  .c-form {
-    max-width: 100%;
-  }
-
   .c-btn-whatsapp {
     width: 100%;
     justify-content: center;
   }
 
   .c-quick-links {
-    flex-direction: column;
     gap: 0.6rem;
-  }
-
-  .c-quick-link {
-    width: 100%;
-    justify-content: center;
   }
 
   .c-photo-card {
@@ -507,5 +724,47 @@
   .c-response {
     right: 1rem;
     top: 3.5rem;
+  }
+
+  /* Form panel: reduce blur slightly for mobile perf,
+     but keep it visually readable */
+  .c-form-panel {
+    max-width: 100%;
+    padding: 1.6rem 1.4rem;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  /* Intent cards collapse to single column on small phones */
+  .c-intent-grid {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .c-intent-card {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0.9rem 1.1rem;
+    min-height: 52px;
+    gap: 0.8rem;
+  }
+
+  .c-intent-label {
+    font-size: 0.85rem;
+  }
+
+  /* Chips: slightly smaller padding, still ≥44px touch target height */
+  .c-chip {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.78rem;
+  }
+
+  .c-step-question {
+    font-size: 1rem;
+  }
+
+  .c-btn-next {
+    width: 100%;
+    justify-content: center;
   }
 }
