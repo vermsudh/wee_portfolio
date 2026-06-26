@@ -1,4 +1,5 @@
 import heroBg from "../../assets/hero_image.jpg";
+import { FaHandshake } from 'react-icons/fa';
 import "./Hero.css";
 
 export default function Hero() {
@@ -74,7 +75,8 @@ export default function Hero() {
 
         {/* g. CTAs */}
         <div className="hero-ctas">
-          <a href="#contact" className="cta-hire">✦ Hire Me</a>
+          <a href="#contact" className="cta-hire"><FaHandshake size={32} color="#F7F4D5 " /> Let's collaborate</a>
+          
           <a href="#work" className="cta-work">View My Work →</a>
         </div>
       </div>

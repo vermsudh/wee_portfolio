@@ -258,8 +258,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
   margin: 1.2rem 0;
+}
+
+.card-icon {
+  display: block;
+  flex-shrink: 0;
+}
+
+.card-1 .card-icon,
+.card-2 .card-icon,
+.card-3 .card-icon {
+  color: var(--rosy);
+}
+
+.card-4 .card-icon {
+  color: var(--dark-green);
 }
 
 .card-1 .card-icon-wrap,
@@ -271,7 +285,6 @@
   width: 68px;
   height: 68px;
   border-radius: 22px;
-  font-size: 1.8rem;
 }
 
 .card-title {
@@ -609,13 +622,11 @@
   .card-icon-wrap {
     width: 44px;
     height: 44px;
-    font-size: 1.2rem;
   }
 
   .card-4 .card-icon-wrap {
     width: 56px;
     height: 56px;
-    font-size: 1.4rem;
   }
 
   .card-title {

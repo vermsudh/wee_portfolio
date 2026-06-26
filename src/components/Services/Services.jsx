@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { Film, BarChart3, Palette, Sparkles } from 'lucide-react'
 import './Services.css'
 
 export default function Services() {
@@ -48,7 +49,7 @@ export default function Services() {
           <div className="card-top">
             <p className="card-num">01</p>
             <div className="card-icon-wrap">
-              <span className="card-icon">🎬</span>
+              <Film className="card-icon" size={26} strokeWidth={1.8} />
             </div>
             <h3 className="card-title">Content Creation</h3>
             <p className="card-desc">
@@ -76,7 +77,7 @@ export default function Services() {
         <div className="bento-card card-2">
           <p className="card-num">02</p>
           <div className="card-icon-wrap">
-            <span className="card-icon">📊</span>
+            <BarChart3 className="card-icon" size={26} strokeWidth={1.8} />
           </div>
           <h3 className="card-title">Social Media Management</h3>
           <p className="card-desc">
@@ -95,7 +96,7 @@ export default function Services() {
         <div className="bento-card card-3">
           <p className="card-num">03</p>
           <div className="card-icon-wrap">
-            <span className="card-icon">🎨</span>
+            <Palette className="card-icon" size={26} strokeWidth={1.8} />
           </div>
           <h3 className="card-title">Creative Direction</h3>
           <p className="card-desc">
@@ -114,7 +115,7 @@ export default function Services() {
           <div className="card-4-left">
             <p className="card-num">04</p>
             <div className="card-icon-wrap">
-              <span className="card-icon">✨</span>
+              <Sparkles className="card-icon" size={30} strokeWidth={1.8} />
             </div>
             <h3 className="card-title">Modelling</h3>
             <p className="card-desc">
@@ -132,7 +133,7 @@ export default function Services() {
           </div>
           <div className="card-4-right">
             <div className="card-4-stat">
-              <p className="card-4-stat-num">6+</p>
+              <p className="card-4-stat-num">8+</p>
               <p className="card-4-stat-label">Brand Shoots</p>
             </div>
           </div>
