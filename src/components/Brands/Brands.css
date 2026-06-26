@@ -62,11 +62,11 @@
 
 /* ── Marquee outer ────────────────────────── */
 .marquee-outer {
-  padding: 1.8rem 0 2.8rem;
+  padding: 2.4rem 0 3.2rem;
   overflow: hidden;
 }
 
-/* ── Row 1 — left ─────────────────────────── */
+/* ── Row — left ───────────────────────────── */
 .marquee-track {
   display: flex;
   gap: 0;
@@ -81,24 +81,6 @@
 @keyframes marqueeLeft {
   from { transform: translateX(0);    }
   to   { transform: translateX(-50%); }
-}
-
-/* ── Row 2 — right ────────────────────────── */
-.marquee-track-reverse {
-  display: flex;
-  gap: 0;
-  width: max-content;
-  margin-top: 0.6rem;
-  animation: marqueeRight 22s linear infinite;
-}
-
-.marquee-track-reverse:hover {
-  animation-play-state: paused;
-}
-
-@keyframes marqueeRight {
-  from { transform: translateX(-50%); }
-  to   { transform: translateX(0);    }
 }
 
 /* ── Brand chip ───────────────────────────── */
@@ -120,7 +102,7 @@
   margin-left: 0.8rem;
 }
 
-/* ── Brand icon ───────────────────────────── */
+/* ── Brand icon (fallback) ────────────────── */
 .brand-icon {
   width: 36px;
   height: 36px;
@@ -139,7 +121,7 @@
   background: rgba(211,150,140,0.12);
 }
 
-/* ── Brand text ───────────────────────────── */
+/* ── Brand text (fallback) ────────────────── */
 .brand-text {
   display: flex;
   flex-direction: column;
@@ -176,6 +158,27 @@
   color: var(--rosy);
 }
 
+/* ── Logo chip ────────────────────────────── */
+.brand-logo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+
+.brand-logo {
+  height: 42px;
+  width: auto;
+  display: block;
+  opacity: 0.92;
+  transition: opacity 0.25s, transform 0.25s;
+}
+
+.brand-chip:hover .brand-logo {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
 /* ── Responsive — below 768px ─────────────── */
 @media (max-width: 768px) {
   .brands-section::before,
@@ -198,6 +201,10 @@
 
   .brand-name {
     font-size: 0.85rem;
+  }
+
+  .brand-logo {
+    height: 34px;
   }
 }
 
@@ -241,5 +248,9 @@
 
   .brand-type {
     font-size: 0.58rem;
+  }
+
+  .brand-logo {
+    height: 28px;
   }
 }

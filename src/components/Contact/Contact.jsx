@@ -199,6 +199,7 @@ export default function Contact() {
             title={contactInfo.phone}
           >
             <Phone size={15} strokeWidth={1.8} />
+            <span className="c-quick-link-label">{contactInfo.responseTime}</span>
           </a>
         </div>
 
@@ -212,12 +213,11 @@ export default function Contact() {
         onMouseLeave={() => setIsHovered(false)}
       >
 
-        <div
+        <img
           className="c-photo"
-          style={{
-            backgroundImage: `url(${contactPhoto})`,
-            transform: isHovered ? 'scale(1.03)' : 'scale(1)'
-          }}
+          src={contactPhoto}
+          alt="Vanshika Verma"
+          style={{ transform: isHovered ? 'scale(1.03)' : 'scale(1)' }}
         />
 
         <div className="c-photo-overlay" />
@@ -225,16 +225,6 @@ export default function Contact() {
         <div className="c-available">
           <span className="c-available-dot" />
           <span className="c-available-text">{contactInfo.availability}</span>
-        </div>
-
-        <div className="c-response">
-          <span className="c-response-text">{contactInfo.responseTime}</span>
-        </div>
-
-        <div className="c-photo-card">
-          <p className="c-photo-card-label">Based in</p>
-          <p className="c-photo-card-name">{contactInfo.location}</p>
-          <p className="c-photo-card-role">{contactInfo.remote}</p>
         </div>
 
       </div>

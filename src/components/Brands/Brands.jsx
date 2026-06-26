@@ -1,27 +1,43 @@
 import './Brands.css'
+import ayuvyaLogo         from '../../assets/brand_logos/auvya.png'
+import paparizzaLogo      from '../../assets/brand_logos/paparizza.png'
+import savorworksLogo     from '../../assets/brand_logos/Sava.png'
+import consciousChemistLogo from '../../assets/brand_logos/conssious_chemist.png'
+import remysLogo from '../../assets/brand_logos/remys.png'
+import silvishLogo from '../../assets/brand_logos/silvish.png'
 
 export default function Brands() {
   const brands = [
-    { name: "Ayuvya Ayurveda",    type: "Wellness",  icon: "🌿" },
-    { name: "Remys",              type: "F&B",       icon: "🍽️" },
-    { name: "Paparizza",          type: "F&B",       icon: "🍕" },
-    { name: "Savorworks",         type: "F&B",       icon: "🥗" },
-    { name: "Jujube",             type: "F&B",       icon: "🌸" },
-    { name: "Gharana Karigari",   type: "Fashion",   icon: "👗" },
-    { name: "Silvish",            type: "Jewellery", icon: "💎" },
-    { name: "The Social Journey", type: "Weddings",  icon: "💍" },
-    { name: "The Boss Hub",       type: "Marketing", icon: "📱" },
+    { name: "Ayuvya Ayurveda",    type: "Wellness",  logo: ayuvyaLogo },
+    { name: "Remys",              type: "F&B",       logo: remysLogo},
+    { name: "Paparizza",          type: "F&B",       logo: paparizzaLogo },
+    { name: "Savorworks",         type: "F&B",       logo: savorworksLogo },
+    { name: "Jujube",             type: "F&B",       logo: null },
+    { name: "Gharana Karigari",   type: "Fashion",   logo: null },
+    { name: "Silvish",            type: "Jewellery", logo: silvishLogo},
+    { name: "The Social Journey", type: "Weddings",  logo: null },
+    { name: "The Boss Hub",       type: "Marketing", logo: null },
+    { name: "Conscious Chemist",  type: "Wellness",  logo: consciousChemistLogo },
   ]
 
   const BrandChip = ({ brand, index }) => (
     <div className="brand-chip" key={index}>
-      <div className="brand-icon">
-        <span>{brand.icon}</span>
-      </div>
-      <div className="brand-text">
-        <p className="brand-name">{brand.name}</p>
-        <p className="brand-type">{brand.type}</p>
-      </div>
+      {brand.logo ? (
+        <div className="brand-logo-wrap">
+          <img src={brand.logo} alt={brand.name} className="brand-logo" />
+          <p className="brand-type">{brand.type}</p>
+        </div>
+      ) : (
+        <>
+          <div className="brand-icon">
+            <span>{brand.name.charAt(0)}</span>
+          </div>
+          <div className="brand-text">
+            <p className="brand-name">{brand.name}</p>
+            <p className="brand-type">{brand.type}</p>
+          </div>
+        </>
+      )}
       <span className="brand-sep">✦</span>
     </div>
   )
@@ -33,23 +49,13 @@ export default function Brands() {
 
       <div className="marquee-outer">
 
-        {/* Row 1 — scrolls left */}
+        {/* Single row — scrolls left */}
         <div className="marquee-track">
           {brands.map((brand, i) => (
             <BrandChip brand={brand} index={i} key={`a-${i}`} />
           ))}
           {brands.map((brand, i) => (
             <BrandChip brand={brand} index={i} key={`b-${i}`} />
-          ))}
-        </div>
-
-        {/* Row 2 — scrolls right */}
-        <div className="marquee-track-reverse">
-          {[...brands].reverse().map((brand, i) => (
-            <BrandChip brand={brand} index={i} key={`c-${i}`} />
-          ))}
-          {[...brands].reverse().map((brand, i) => (
-            <BrandChip brand={brand} index={i} key={`d-${i}`} />
           ))}
         </div>
 
