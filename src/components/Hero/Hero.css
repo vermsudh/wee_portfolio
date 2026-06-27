@@ -490,6 +490,13 @@
 
 /* ── Small phones (≤ 480px) ───────────────── */
 @media (max-width: 480px) {
+  .eyebrow {
+    position: absolute;
+    top: 80px;
+    left: 4.5%;
+    z-index: 4;
+  }
+
   .hero-name-v {
     font-size: clamp(2rem, 10vw, 2.6rem);
     line-height: 0.92;
@@ -560,6 +567,11 @@
 
 /* ── Extra small phones (≤ 375px) ─────────── */
 @media (max-width: 375px) {
+  .eyebrow {
+    top: 72px;
+    left: 4%;
+  }
+
   .hero-content {
     padding: 0 4% 4rem 4%;
     max-width: 100%;
