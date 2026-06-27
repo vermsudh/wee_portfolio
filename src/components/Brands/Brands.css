@@ -12,7 +12,7 @@
 
 /* ── Section ──────────────────────────────── */
 .brands-section {
-  background: var(--dark-green);
+  background: var(--midnight);
   padding: 0;
   overflow: hidden;
   position: relative;
@@ -28,9 +28,9 @@
   bottom: 0;
   left: 0;
   width: 180px;
-  z-index: 3;
+  z-index: 1;
   pointer-events: none;
-  background: linear-gradient(to right, #0A3323 0%, transparent 100%);
+  background: linear-gradient(to right, #105666 0%, transparent 100%);
 }
 
 .brands-section::after {
@@ -40,9 +40,9 @@
   bottom: 0;
   right: 0;
   width: 180px;
-  z-index: 3;
+  z-index: 1;
   pointer-events: none;
-  background: linear-gradient(to left, #0A3323 0%, transparent 100%);
+  background: linear-gradient(to left, #105666 0%, transparent 100%);
 }
 
 /* ── Label ────────────────────────────────── */
@@ -145,13 +145,14 @@
 
 .brand-type {
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.62rem;
+  font-size: 0.80rem;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: rgba(247,244,213,0.2);
   transition: color 0.3s;
   margin: 0;
+  text-align: center;   /* added */
 }
 
 .brand-chip:hover .brand-type {
@@ -164,14 +165,16 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 0.4rem;
+  align-items: center; 
 }
 
+
 .brand-logo {
-  height: 42px;
-  width: auto;
-  display: block;
-  opacity: 0.92;
-  transition: opacity 0.25s, transform 0.25s;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: contain;
+  background: var(--beige);
 }
 
 .brand-chip:hover .brand-logo {
@@ -204,7 +207,8 @@
   }
 
   .brand-logo {
-    height: 34px;
+    width: 100px;
+    height: 100px;
   }
 }
 
@@ -251,6 +255,7 @@
   }
 
   .brand-logo {
-    height: 28px;
+    width: 78px;
+    height: 78px;
   }
 }

@@ -22,9 +22,6 @@ export default function Work() {
             My <span className="work-title-script">Creations</span>
           </h2>
         </div>
-        <p className="work-header-note">
-          me doing what im best at
-        </p>
       </div>
 
       {/* 2. Filters */}
