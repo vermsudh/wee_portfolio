@@ -151,7 +151,7 @@
   font-family: "Playfair Display", serif;
   font-size: clamp(5rem, 10.5vw, 11rem);
   font-weight: 900;
-  color: var(--beige);
+  color: var(--rosy);
   line-height: 0.88;
   letter-spacing: -0.025em;
   display: block;
@@ -159,20 +159,6 @@
   animation: riseUp 0.7s ease forwards;
   animation-delay: 0.52s;
 }
-
-.hero-name-r {
-  font-family: "Dancing Script", cursive;
-  font-size: clamp(3.8rem, 8vw, 8.5rem);
-  font-weight: 700;
-  color: var(--rosy);
-  line-height: 1.0;
-  display: block;
-  margin-top: -0.15rem;
-  opacity: 0;
-  animation: riseUp 0.7s ease forwards;
-  animation-delay: 0.62s;
-}
-
 /* d. Separator */
 .hero-sep {
   display: flex;
@@ -418,10 +404,15 @@
 @media (max-width: 768px) {
   .hero-name-v {
     font-size: clamp(3.8rem, 16vw, 5.5rem);
-  }
-
-  .hero-name-r {
-    font-size: clamp(3rem, 13vw, 4.5rem);
+    font-family: "Playfair Display", serif;
+    font-weight: 900;
+    color: var(--rosy);
+    line-height: 0.88;
+    letter-spacing: -0.025em;
+    display: block;
+    opacity: 0;
+    animation: riseUp 0.7s ease forwards;
+    animation-delay: 0.52s;
   }
 
   .hero-tagline {
@@ -490,10 +481,6 @@
     font-size: clamp(3rem, 18vw, 4rem);
   }
 
-  .hero-name-r {
-    font-size: clamp(2.4rem, 14vw, 3.2rem);
-  }
-
   .hero-tagline {
     font-size: 0.92rem;
     max-width: 100%;
@@ -558,9 +545,7 @@
     font-size: clamp(2.8rem, 18vw, 3.5rem);
   }
 
-  .hero-name-r {
-    font-size: clamp(2rem, 13vw, 2.8rem);
-  }
+
 
   .hero-hi {
     font-size: clamp(0.9rem, 1.5vw, 1rem);
@@ -626,9 +611,7 @@
     font-size: clamp(3.8rem, 16vw, 5.5rem);
   }
 
-  .hero-name-r {
-    font-size: clamp(3rem, 13vw, 4.5rem);
-  }
+
 
   .hero-tagline {
     font-size: 1rem;
@@ -654,9 +637,7 @@
     font-size: clamp(5rem, 11vw, 7.5rem);
   }
 
-  .hero-name-r {
-    font-size: clamp(3.8rem, 8.5vw, 6rem);
-  }
+
 
   .hero-tagline {
     font-size: clamp(1.05rem, 2vw, 1.35rem);
@@ -697,9 +678,7 @@
     font-size: clamp(6rem, 10.5vw, 9rem);
   }
 
-  .hero-name-r {
-    font-size: clamp(4.5rem, 8vw, 7rem);
-  }
+
 
   .hero-tagline {
     font-size: clamp(1.1rem, 2vw, 1.5rem);
@@ -718,9 +697,7 @@
     font-size: clamp(8rem, 10.5vw, 11rem);
   }
 
-  .hero-name-r {
-    font-size: clamp(6rem, 8vw, 8.5rem);
-  }
+
 
   .hero-content {
     max-width: 760px;
@@ -734,9 +711,7 @@
     font-size: 11rem;
   }
 
-  .hero-name-r {
-    font-size: 8.5rem;
-  }
+
 
   .hero-tagline {
     font-size: 1.65rem;

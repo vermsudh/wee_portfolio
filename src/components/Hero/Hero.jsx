@@ -37,7 +37,6 @@ export default function Hero() {
         {/* c. Name */}
         <h1>
           <span className="hero-name-v">Vanshika</span>
-          <span className="hero-name-r">Verma</span>
         </h1>
 
         {/* d. Separator */}
