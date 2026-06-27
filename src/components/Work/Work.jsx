@@ -3,12 +3,12 @@ import useWork from './useWork'
 
 export default function Work() {
   const {
-    filters, visibleReels, activeFilter, activeReel,
+    filters, visibleReels, activeFilter, activeReel, triggerType, isMuted,
     sectionRef, stripRef,
-    handleFilter, handlePlay, handleClose,
+    handleFilter, handlePlay, handleClose, handleMuteToggle,
+    registerVideoRef, handleCardMouseEnter, handleCardMouseLeave,
     scrollLeft, scrollRight,
-    handleMouseDown, handleMouseMove,
-    handleMouseUp, handleMouseLeave
+    handleMouseDown, handleMouseMove, handleMouseUp, handleMouseLeave
   } = useWork()
 
   return (
@@ -51,14 +51,18 @@ export default function Work() {
             <div className="phone-card" key={reel.id}>
 
               {/* A. Phone shell */}
-              <div className="phone-shell">
+              <div
+                className="phone-shell"
+                onMouseEnter={() => handleCardMouseEnter(reel.id)}
+                onMouseLeave={() => handleCardMouseLeave(reel.id)}
+              >
                 <div className="phone-screen">
 
                   <div className="phone-island" />
 
                   <div className="phone-content">
 
-                    {/* Thumbnail */}
+                    {/* Thumbnail — resting state */}
                     <div
                       className={"phone-thumbnail" + (activeReel === reel.id ? " hidden" : "")}
                     >
@@ -80,16 +84,29 @@ export default function Work() {
                       </div>
                     </div>
 
-                    {/* Embed */}
+                    {/* Video — active state */}
                     <div
                       className={"phone-embed" + (activeReel === reel.id ? " active" : "")}
                     >
-                      {activeReel === reel.id && (
-                        <div className="embed-placeholder">
-                          <div className="embed-ig-icon">📸</div>
-                          <p className="embed-ig-text">Instagram Reel</p>
-                          <p className="embed-ig-text-sub">will play here</p>
-                          <p className="embed-url-hint">{reel.instaUrl}</p>
+                      {/* Clicking the video itself switches hover→click */}
+                      <video
+                        ref={(el) => registerVideoRef(reel.id, el)}
+                        src={reel.videoSrc}
+                        playsInline
+                        preload="metadata"
+                        loop
+                        muted={triggerType === 'hover' || (triggerType === 'click' && isMuted)}
+                        className="phone-video"
+                        onClick={() => handlePlay(reel.id)}
+                      />
+                      {activeReel === reel.id && triggerType === 'click' && (
+                        <div className="video-controls">
+                          <button
+                            className="video-mute-btn"
+                            onClick={handleMuteToggle}
+                          >
+                            {isMuted ? 'Unmute' : 'Mute'}
+                          </button>
                           <button
                             className="embed-close-btn"
                             onClick={handleClose}
