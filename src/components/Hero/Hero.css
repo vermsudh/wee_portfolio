@@ -403,21 +403,34 @@
 
 @media (max-width: 768px) {
   .hero-name-v {
-    font-size: clamp(3.8rem, 16vw, 5.5rem);
+    font-size: clamp(2.4rem, 9vw, 3.8rem);
     font-family: "Playfair Display", serif;
     font-weight: 900;
     color: var(--rosy);
-    line-height: 0.88;
-    letter-spacing: -0.025em;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
     display: block;
     opacity: 0;
     animation: riseUp 0.7s ease forwards;
     animation-delay: 0.52s;
   }
 
+  .hero-hi {
+    margin-top: 0.9rem;
+  }
+
+  .hero-sep {
+    margin: 1rem 0 0.8rem;
+  }
+
   .hero-tagline {
-    font-size: 1rem;
+    font-size: 0.95rem;
     max-width: 90%;
+  }
+
+  .hero-subtext {
+    font-size: 0.82rem;
+    margin-top: 0.5rem;
   }
 
   .hero-location {
@@ -429,15 +442,15 @@
   }
 
   .hero-content {
-    padding: 0 5% 6rem 5%;
+    padding: 0 5% 5rem 5%;
   }
 
   /* ── Stack CTAs vertically; keep them compact ── */
   .hero-ctas {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.55rem;
-    margin-top: 1.4rem;
+    gap: 0.5rem;
+    margin-top: 1.1rem;
   }
 
   .cta-hire,
@@ -445,7 +458,7 @@
     width: auto;
     max-width: 100%;
     justify-content: center;
-    padding: 0.62rem 1.25rem;
+    padding: 0.6rem 1.2rem;
     font-size: 0.74rem;
     min-height: unset;
     box-shadow: 0 4px 18px rgba(211, 150, 140, 0.35);
@@ -459,11 +472,11 @@
   }
 
   .hero-pills {
-    margin-top: 1.2rem;
+    margin-top: 1rem;
   }
 
   .hero-skills {
-    margin-top: 0.45rem;
+    margin-top: 0.4rem;
   }
 
   .rpill {
@@ -478,77 +491,17 @@
 /* ── Small phones (≤ 480px) ───────────────── */
 @media (max-width: 480px) {
   .hero-name-v {
-    font-size: clamp(3rem, 18vw, 4rem);
+    font-size: clamp(2rem, 10vw, 2.6rem);
+    line-height: 0.92;
   }
-
-  .hero-tagline {
-    font-size: 0.92rem;
-    max-width: 100%;
-    line-height: 1.55;
-  }
-
-  .hero-subtext {
-    font-size: 0.82rem;
-    line-height: 1.55;
-  }
-
-  .hero-content {
-    padding: 0 4.5% 5.5rem 4.5%;
-  }
-
-  .hero-pills {
-    gap: 0.35rem;
-    margin-top: 1rem;
-  }
-
-  .hero-skills {
-    gap: 0.35rem;
-    margin-top: 0.4rem;
-  }
-
-  .rpill {
-    font-size: 0.58rem;
-    padding: 0.22rem 0.62rem;
-  }
-
-  .hero-ctas {
-    gap: 0.5rem;
-    margin-top: 1.25rem;
-  }
-
-  .cta-hire,
-  .cta-work {
-    padding: 0.58rem 1.1rem;
-    font-size: 0.72rem;
-  }
-
-  .hero-location  { display: none; }
-  .scroll-hint    { display: none; }
-
-  .hero-socials {
-    left: 4.5%;
-    gap: 1rem;
-    bottom: 2rem;
-  }
-
-  .hsoc { font-size: 0.58rem; }
-}
-
-/* ── Extra small phones (≤ 375px) ─────────── */
-@media (max-width: 375px) {
-  .hero-content {
-    padding: 0 4% 5rem 4%;
-    max-width: 100%;
-  }
-
-  .hero-name-v {
-    font-size: clamp(2.8rem, 18vw, 3.5rem);
-  }
-
-
 
   .hero-hi {
-    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    font-size: 0.88rem;
+    margin-top: 0.75rem;
+  }
+
+  .hero-sep {
+    margin: 0.75rem 0 0.6rem;
   }
 
   .hero-tagline {
@@ -558,73 +511,161 @@
   }
 
   .hero-subtext {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    margin-top: 0.4rem;
   }
 
-  .hero-pills,
+  .hero-content {
+    padding: 0 4.5% 4.5rem 4.5%;
+  }
+
+  .hero-pills {
+    gap: 0.32rem;
+    margin-top: 0.75rem;
+  }
+
   .hero-skills {
-    gap: 0.3rem;
+    gap: 0.32rem;
+    margin-top: 0.32rem;
   }
 
   .rpill {
-    font-size: 0.55rem;
-    padding: 0.2rem 0.55rem;
+    font-size: 0.57rem;
+    padding: 0.2rem 0.6rem;
   }
 
   .hero-ctas {
     gap: 0.45rem;
-    margin-top: 1.1rem;
+    margin-top: 0.9rem;
   }
 
   .cta-hire,
   .cta-work {
-    padding: 0.52rem 0.95rem;
-    font-size: 0.68rem;
+    padding: 0.55rem 1rem;
+    font-size: 0.71rem;
+  }
+
+  .hero-location  { display: none; }
+  .scroll-hint    { display: none; }
+
+  .hero-socials {
+    left: 4.5%;
+    gap: 1rem;
+    bottom: 1.6rem;
+  }
+
+  .hsoc { font-size: 0.56rem; }
+}
+
+/* ── Extra small phones (≤ 375px) ─────────── */
+@media (max-width: 375px) {
+  .hero-content {
+    padding: 0 4% 4rem 4%;
+    max-width: 100%;
+  }
+
+  .hero-name-v {
+    font-size: clamp(1.8rem, 9.5vw, 2.2rem);
+    line-height: 0.92;
+  }
+
+  .hero-hi {
+    font-size: 0.82rem;
+    margin-top: 0.65rem;
+  }
+
+  .hero-sep {
+    margin: 0.65rem 0 0.5rem;
+  }
+
+  .hero-tagline {
+    font-size: 0.84rem;
+    max-width: 100%;
+    line-height: 1.5;
+  }
+
+  .hero-subtext {
+    font-size: 0.76rem;
+    margin-top: 0.35rem;
+  }
+
+  .hero-pills,
+  .hero-skills {
+    gap: 0.28rem;
+  }
+
+  .hero-pills {
+    margin-top: 0.65rem;
+  }
+
+  .hero-skills {
+    margin-top: 0.28rem;
+  }
+
+  .rpill {
+    font-size: 0.54rem;
+    padding: 0.18rem 0.52rem;
+  }
+
+  .hero-ctas {
+    gap: 0.4rem;
+    margin-top: 0.8rem;
+  }
+
+  .cta-hire,
+  .cta-work {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.67rem;
   }
 
   .eyebrow {
-    gap: 0.7rem;
+    gap: 0.65rem;
   }
 
   .ey-line {
-    width: 30px;
+    width: 28px;
   }
 
   .ey-text {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
   }
 
   .hero-socials {
     left: 4%;
-    gap: 0.9rem;
-    bottom: 1.8rem;
+    gap: 0.85rem;
+    bottom: 1.4rem;
   }
 
   .hsoc {
-    font-size: 0.55rem;
+    font-size: 0.53rem;
   }
 }
 
 /* ── Large phones (481px – 767px) ─────────── */
 @media (min-width: 481px) and (max-width: 767px) {
   .hero-name-v {
-    font-size: clamp(3.8rem, 16vw, 5.5rem);
+    font-size: clamp(2.8rem, 9vw, 3.8rem);
+    line-height: 0.9;
   }
 
-
+  .hero-sep {
+    margin: 1.1rem 0 0.9rem;
+  }
 
   .hero-tagline {
-    font-size: 1rem;
+    font-size: 0.95rem;
     max-width: 90%;
   }
 
   .hero-content {
-    padding: 0 5% 6rem 5%;
+    padding: 0 5% 5rem 5%;
   }
 
   .hero-ctas {
     flex-wrap: wrap;
-    gap: 0.8rem;
+    gap: 0.75rem;
+    margin-top: 1rem;
   }
 
   .hero-location  { display: none; }
