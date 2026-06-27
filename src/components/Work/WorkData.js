@@ -25,7 +25,7 @@ export const reels = [
     id: 3,
     brand: "Silvish",
     title: "Jewellery Campaign",
-    bgGradient: "linear-gradient(160deg, #4a6b5a 0%, #2d4a3a 50%, #0d2018 100%)",
+    bgGradient: "linear-gradient(160deg, #D3968C 0%, #D3968C 50%, #D3968C 100%)",
     instaUrl: "YOUR_INSTAGRAM_REEL_URL_5",
     videoSrc: silvish2
   },
@@ -33,7 +33,7 @@ export const reels = [
     id: 4,
     brand: "Savorworks",
     title: "Brand Story Reel",
-    bgGradient: "linear-gradient(160deg, #5a3d6b 0%, #3d2050 50%, #1f0d30 100%)",
+    bgGradient: "linear-gradient(160deg,rgb(230, 146, 62) 0%,rgb(215, 147, 44) 50%,rgb(214, 159, 32) 100%)",
     instaUrl: "YOUR_INSTAGRAM_REEL_URL_3",
     videoSrc: savorworks
   },
