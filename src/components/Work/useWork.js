@@ -1,13 +1,11 @@
 import { useState, useEffect, useRef } from 'react'
-import { reels, filters } from './WorkData'
 
 export default function useWork() {
 
   // ── State ──────────────────────────────────
-  const [activeFilter, setActiveFilter] = useState('all')
-  const [activeReel,   setActiveReel]   = useState(null)
-  const [triggerType,  setTriggerType]  = useState(null)  // 'hover' | 'click' | null
-  const [isMuted,      setIsMuted]      = useState(false)
+  const [activeReel,  setActiveReel]  = useState(null)
+  const [triggerType, setTriggerType] = useState(null)  // 'hover' | 'click' | null
+  const [isMuted,     setIsMuted]     = useState(false)
 
   // ── Refs ───────────────────────────────────
   const stripRef   = useRef(null)
@@ -26,11 +24,6 @@ export default function useWork() {
   const isDown      = useRef(false)
   const startX      = useRef(0)
   const scrollStart = useRef(0)
-
-  // ── Derived ────────────────────────────────
-  const visibleReels = activeFilter === 'all'
-    ? reels
-    : reels.filter(r => r.category === activeFilter)
 
   // ── Video ref registration ─────────────────
   function registerVideoRef(id, el) {
@@ -70,15 +63,6 @@ export default function useWork() {
     setActiveReel(null)
     setTriggerType(null)
     setIsMuted(false)
-  }
-
-  // ── Filter ─────────────────────────────────
-  function handleFilter(value) {
-    deactivateVideo()
-    setActiveFilter(value)
-    if (stripRef.current) {
-      stripRef.current.scrollTo({ left: 0, behavior: 'smooth' })
-    }
   }
 
   // ── Hover (desktop pointer devices only) ───
@@ -195,15 +179,11 @@ export default function useWork() {
 
   // ── Return ─────────────────────────────────
   return {
-    filters,
-    visibleReels,
-    activeFilter,
     activeReel,
     triggerType,
     isMuted,
     sectionRef,
     stripRef,
-    handleFilter,
     handlePlay,
     handleClose,
     handleMuteToggle,

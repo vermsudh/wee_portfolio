@@ -1,11 +1,12 @@
 import './Work.css'
 import useWork from './useWork'
+import { reels } from './WorkData'
 
 export default function Work() {
   const {
-    filters, visibleReels, activeFilter, activeReel, triggerType, isMuted,
+    activeReel, triggerType, isMuted,
     sectionRef, stripRef,
-    handleFilter, handlePlay, handleClose, handleMuteToggle,
+    handlePlay, handleClose, handleMuteToggle,
     registerVideoRef, handleCardMouseEnter, handleCardMouseLeave,
     scrollLeft, scrollRight,
     handleMouseDown, handleMouseMove, handleMouseUp, handleMouseLeave
@@ -24,20 +25,7 @@ export default function Work() {
         </div>
       </div>
 
-      {/* 2. Filters */}
-      <div className="work-filters">
-        {filters.map(filter => (
-          <button
-            key={filter.value}
-            className={"filter-btn" + (activeFilter === filter.value ? " active" : "")}
-            onClick={() => handleFilter(filter.value)}
-          >
-            {filter.label}
-          </button>
-        ))}
-      </div>
-
-      {/* 3. Strip */}
+      {/* 2. Strip */}
       <div className="work-strip-outer">
         <div
           className="work-strip"
@@ -47,7 +35,7 @@ export default function Work() {
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseLeave}
         >
-          {visibleReels.map(reel => (
+          {reels.map(reel => (
             <div className="phone-card" key={reel.id}>
 
               {/* A. Phone shell */}
@@ -79,7 +67,6 @@ export default function Work() {
                       </button>
                       <span className="tap-label">Tap to play</span>
                       <div className="phone-info-inner">
-                        <span className="phone-brand-tag">{reel.tag}</span>
                         <p className="phone-reel-title">{reel.title}</p>
                       </div>
                     </div>
@@ -88,7 +75,6 @@ export default function Work() {
                     <div
                       className={"phone-embed" + (activeReel === reel.id ? " active" : "")}
                     >
-                      {/* Clicking the video itself switches hover→click */}
                       <video
                         ref={(el) => registerVideoRef(reel.id, el)}
                         src={reel.videoSrc}
@@ -124,7 +110,6 @@ export default function Work() {
               {/* B. Phone label */}
               <div className="phone-label">
                 <p className="phone-label-brand">{reel.brand}</p>
-                <p className="phone-label-cat">{reel.labelCat}</p>
               </div>
 
             </div>
@@ -132,18 +117,25 @@ export default function Work() {
         </div>
       </div>
 
-      {/* 4. Strip nav */}
+      {/* 3. Strip nav */}
       <div className="strip-nav">
         <button className="strip-arrow" onClick={scrollLeft}>←</button>
         <button className="strip-arrow" onClick={scrollRight}>→</button>
       </div>
 
-      {/* 5. Footer */}
+      {/* 4. Footer */}
       <div className="work-footer">
         <p className="work-footer-text">
           Want to see more? Let&apos;s make something <em>together.</em>
         </p>
-        <a className="work-cta" href="#contact">✦ Work With Me</a>
+        <a
+          className="work-cta"
+          href="https://www.instagram.com/bas.kar.vanshikaa/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ✦ See More on Instagram
+        </a>
       </div>
 
     </section>
