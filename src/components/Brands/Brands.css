@@ -12,7 +12,7 @@
 
 /* ── Section ──────────────────────────────── */
 .brands-section {
-  background: var(--midnight);
+  background: var(--dark-green);
   padding: 0;
   overflow: hidden;
   position: relative;
@@ -30,7 +30,7 @@
   width: 180px;
   z-index: 1;
   pointer-events: none;
-  background: linear-gradient(to right, #105666 0%, transparent 100%);
+  background: linear-gradient(to right, #839958 0%, transparent 100%);
 }
 
 .brands-section::after {
@@ -42,7 +42,7 @@
   width: 180px;
   z-index: 1;
   pointer-events: none;
-  background: linear-gradient(to left, #105666 0%, transparent 100%);
+  background: linear-gradient(to left, #839958 0%, transparent 100%);
 }
 
 /* ── Label ────────────────────────────────── */

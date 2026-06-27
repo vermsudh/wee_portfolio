@@ -54,7 +54,8 @@ export default function Testimonials() {
   const carouselItems = testimonials.filter(t => t.featured === false)
 
   const [current, setCurrent] = useState(0)
-  const trackRef   = useRef(null)
+  const outerRef   = useRef(null)
+  const cardRefs   = useRef([])
   const sectionRef = useRef(null)
 
   const total = carouselItems.length
@@ -62,26 +63,53 @@ export default function Testimonials() {
   function goTo(index) {
     const clamped = Math.max(0, Math.min(index, total - 1))
     setCurrent(clamped)
+    cardRefs.current[clamped]?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'start',
+    })
   }
 
   function handlePrev() { goTo(current - 1) }
   function handleNext() { goTo(current + 1) }
 
-  // Auto-advance
+  // Sync active dot with scroll position
   useEffect(() => {
-    const timer = setInterval(() => {
-      goTo((current + 1) % total)
-    }, 4000)
-    return () => clearInterval(timer)
-  }, [current])
+    const outer = outerRef.current
+    if (!outer) return
 
-  // Scroll position
-  useEffect(() => {
-    if (trackRef.current) {
-      trackRef.current.style.transform =
-        `translateX(-${current * (320 + 22)}px)`
+    let ticking = false
+
+    function onScroll() {
+      if (ticking) return
+      ticking = true
+      requestAnimationFrame(() => {
+        const cards = cardRefs.current.filter(Boolean)
+        if (!cards.length) {
+          ticking = false
+          return
+        }
+
+        const scrollLeft = outer.scrollLeft
+        let closest = 0
+        let minDist = Infinity
+
+        cards.forEach((card, i) => {
+          const dist = Math.abs(card.offsetLeft - scrollLeft)
+          if (dist < minDist) {
+            minDist = dist
+            closest = i
+          }
+        })
+
+        setCurrent(closest)
+        ticking = false
+      })
     }
-  }, [current])
+
+    outer.addEventListener('scroll', onScroll, { passive: true })
+    return () => outer.removeEventListener('scroll', onScroll)
+  }, [])
 
   // Scroll reveal
   useEffect(() => {
@@ -174,10 +202,14 @@ export default function Testimonials() {
         </div>
 
         {/* B. Carousel Track */}
-        <div className="t-carousel-outer">
-          <div className="t-carousel-track" ref={trackRef}>
-            {carouselItems.map(item => (
-              <div className="t-card" key={item.id}>
+        <div className="t-carousel-outer" ref={outerRef}>
+          <div className="t-carousel-track">
+            {carouselItems.map((item, index) => (
+              <div
+                className="t-card"
+                key={item.id}
+                ref={el => { cardRefs.current[index] = el }}
+              >
                 <p className="t-card-quote">{item.quote}</p>
                 <div className="t-card-footer">
                   <div className="t-card-avatar">

@@ -13,8 +13,8 @@
 
 /* ── Section ──────────────────────────────── */
 .t-section {
-  background: #105666;
-  padding: 7rem 8% 6rem;
+  background: var(--midnight);
+  padding: 7rem 8%;
   position: relative;
   overflow: hidden;
 }
@@ -48,7 +48,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 4.5rem;
+  margin-bottom: 5rem;
   position: relative;
   z-index: 2;
   opacity: 0;
@@ -78,9 +78,9 @@
 
 .t-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
   font-weight: 700;
-  color: #F7F4D5;
+  color: var(--beige);
   line-height: 1.1;
   margin: 0;
 }
@@ -96,9 +96,9 @@
 .t-header-note {
   font-family: 'DM Sans', sans-serif;
   font-size: 0.88rem;
-  color: rgba(247,244,213,0.4);
+  color: rgba(247,244,213,0.45);
   line-height: 1.7;
-  max-width: 220px;
+  max-width: 260px;
   text-align: right;
   margin: 0;
 }
@@ -322,7 +322,18 @@
 /* ── Carousel Outer ───────────────────────── */
 .t-carousel-outer {
   position: relative;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  width: 100%;
+}
+
+.t-carousel-outer::-webkit-scrollbar {
+  display: none;
 }
 
 .t-carousel-outer::before {
@@ -353,14 +364,14 @@
 .t-carousel-track {
   display: flex;
   gap: 1.4rem;
-  transition: transform 0.55s cubic-bezier(.22,.68,0,1.2);
   padding: 0.5rem 0 1rem;
-  will-change: transform;
 }
 
 /* ── Carousel Card ────────────────────────── */
 .t-card {
   flex: 0 0 320px;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
   background: rgba(247,244,213,0.04);
   border: 1px solid rgba(247,244,213,0.08);
   border-radius: 24px;
@@ -368,11 +379,7 @@
   cursor: default;
   position: relative;
   overflow: hidden;
-  transition:
-    background 0.3s,
-    transform 0.35s,
-    border-color 0.3s,
-    box-shadow 0.35s;
+  transition: background 0.3s, border-color 0.3s;
 }
 
 .t-card::before {
@@ -390,9 +397,7 @@
 
 .t-card:hover {
   background: rgba(247,244,213,0.07);
-  transform: translateY(-4px);
   border-color: rgba(247,244,213,0.14);
-  box-shadow: 0 16px 48px rgba(0,0,0,0.2);
 }
 
 .t-card:hover::before {
@@ -524,7 +529,12 @@
   animation-delay: 0.3s;
 }
 
-/* ── Tablet responsive (768px - 1024px) ────── */
+/* ══════════════════════════════════════════
+   RESPONSIVE  —  matches Experience section
+   padding / header / breakpoint strategy
+══════════════════════════════════════════ */
+
+/* ── Tablet (768px – 1024px) ─────────────── */
 @media (min-width: 768px) and (max-width: 1024px) {
   .t-section {
     padding: 5rem 6%;
@@ -534,26 +544,34 @@
     font-size: clamp(2rem, 3.5vw, 3rem);
   }
 
+  /* ~2 cards visible; content area ≈ 88vw */
   .t-card {
-    flex: 0 0 clamp(280px, 40vw, 340px);
+    flex: 0 0 clamp(240px, 42vw, 300px);
+    padding: 1.6rem 1.4rem;
   }
 
+  .t-card-quote {
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+
+  /* edge fades not needed at this size */
   .t-carousel-outer::before,
   .t-carousel-outer::after {
-    width: 80px;
+    display: none;
   }
 }
 
-/* ── Responsive — below 768px ─────────────── */
+/* ── Mobile (≤ 768px) ────────────────────── */
 @media (max-width: 768px) {
   .t-section {
-    padding: 4rem 5% 3.5rem;
+    padding: 5rem 5%;          /* content = 90vw  */
   }
 
   .t-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 1.2rem;
     margin-bottom: 3rem;
   }
 
@@ -567,6 +585,7 @@
     font-size: 0.85rem;
   }
 
+  /* ── featured card ── */
   .t-featured {
     padding: 1.8rem 1.4rem;
     margin-bottom: 3rem;
@@ -585,22 +604,12 @@
   }
 
   .t-featured-quote {
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-size: clamp(1rem, 3.5vw, 1.4rem);
     line-height: 1.6;
   }
 
   .t-featured-meta {
     align-items: flex-start;
-  }
-
-  .t-avatar {
-    width: 54px;
-    height: 54px;
-  }
-
-  .t-card-avatar {
-    width: 38px;
-    height: 38px;
   }
 
   .t-featured-name,
@@ -609,38 +618,42 @@
     text-align: left;
   }
 
-  .t-featured-name {
-    font-size: 0.88rem;
-  }
-
+  .t-featured-name  { font-size: 0.88rem; }
   .t-featured-role,
-  .t-featured-brand {
-    font-size: 0.65rem;
+  .t-featured-brand { font-size: 0.65rem; }
+
+  .t-avatar {
+    width: 54px;
+    height: 54px;
   }
 
-  .t-carousel-label {
-    font-size: 0.6rem;
-  }
+  /* ── carousel controls ── */
+  .t-carousel-label { font-size: 0.6rem; }
 
   .t-nav-btn {
-    width: 32px;
-    height: 32px;
+    width: 44px;
+    height: 44px;
     font-size: 0.8rem;
   }
 
-  .t-nav-counter {
-    font-size: 0.75rem;
+  .t-nav-counter { font-size: 0.75rem; }
+
+  /* ── cards: 1 per view, content = 90vw ── */
+  .t-card {
+    flex: 0 0 80vw;            /* leaves ~10vw peek for next card */
+    padding: 1.35rem 1.25rem;
+    border-radius: 20px;
   }
 
-  .t-card {
-    flex: 0 0 85vw;
-    padding: 1.5rem 1.4rem;
-    border-radius: 20px;
+  .t-card-avatar {
+    width: 38px;
+    height: 38px;
   }
 
   .t-card-quote {
     font-size: 0.88rem;
-    margin-bottom: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1.1rem;
   }
 
   .t-card-quote::before {
@@ -648,47 +661,37 @@
     top: 10px;
   }
 
-  .t-card-name {
-    font-size: 0.8rem;
-  }
+  .t-card-name  { font-size: 0.8rem; }
+  .t-card-brand { font-size: 0.62rem; }
 
-  .t-card-brand {
-    font-size: 0.62rem;
-  }
+  /* ── dots ── */
+  .t-dots      { gap: 0.4rem; margin-top: 1.5rem; }
+  .t-dot       { width: 5px; height: 5px; }
+  .t-dot.active { width: 16px; }
 
-  .t-dots {
-    gap: 0.4rem;
-    margin-top: 1.5rem;
-  }
-
-  .t-dot {
-    width: 5px;
-    height: 5px;
-  }
-
-  .t-dot.active {
-    width: 16px;
+  /* edge fades not needed */
+  .t-carousel-outer::before,
+  .t-carousel-outer::after {
+    display: none;
   }
 }
 
-/* ── Small phones (≤ 480px) ───────────────── */
+/* ── Small phones (≤ 480px) ──────────────── */
 @media (max-width: 480px) {
   .t-section {
-    padding: 3rem 4.5%;
+    padding: 3.5rem 4.5%;      /* content = 91vw  */
   }
 
-  .t-header {
-    margin-bottom: 2.5rem;
-  }
+  .t-header      { margin-bottom: 2.5rem; }
+  .t-eyebrow     { font-size: 0.62rem; }
 
   .t-title {
-    font-size: clamp(1.5rem, 6vw, 2rem);
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
   }
 
-  .t-eyebrow {
-    font-size: 0.62rem;
-  }
+  .t-header-note { font-size: 0.8rem; }
 
+  /* ── featured ── */
   .t-featured {
     padding: 1.5rem 1.2rem;
     margin-bottom: 2.5rem;
@@ -702,98 +705,82 @@
   }
 
   .t-featured-quote {
-    font-size: 0.95rem;
+    font-size: clamp(0.92rem, 3.8vw, 1.1rem);
     line-height: 1.55;
   }
 
-  .t-avatar {
-    width: 46px;
-    height: 46px;
-  }
+  .t-avatar       { width: 46px; height: 46px; }
+  .t-featured-name { font-size: 0.8rem; }
 
-  .t-card-avatar {
-    width: 34px;
-    height: 34px;
-  }
+  .t-stars        { gap: 0.1rem; }
+  .t-star         { font-size: 0.65rem; }
 
-  .t-stars {
-    gap: 0.1rem;
-  }
-
-  .t-star {
-    font-size: 0.65rem;
-  }
-
-  .t-featured-name {
-    font-size: 0.8rem;
-  }
-
-  .t-carousel-header {
-    margin-bottom: 1.2rem;
-  }
-
-  .t-carousel-label {
-    font-size: 0.58rem;
-  }
+  /* ── carousel controls ── */
+  .t-carousel-header { margin-bottom: 1.2rem; }
+  .t-carousel-label  { font-size: 0.58rem; }
 
   .t-nav-btn {
-    width: 30px;
-    height: 30px;
+    width: 44px;
+    height: 44px;
     font-size: 0.75rem;
   }
 
-  .t-nav-counter {
-    font-size: 0.7rem;
-  }
+  .t-nav-counter { font-size: 0.7rem; }
 
-  .t-carousel-outer::before,
-  .t-carousel-outer::after {
-    width: 40px;
-  }
-
-  .t-carousel-track {
-    gap: 1rem;
-  }
+  /* ── cards: 1 per view, content = 91vw ── */
+  .t-carousel-track { gap: 1rem; }
 
   .t-card {
-    flex: 0 0 90vw;
-    padding: 1.2rem 1rem;
+    flex: 0 0 83vw;            /* leaves ~8vw peek for next card */
+    padding: 1.15rem 1rem;
     border-radius: 16px;
   }
 
+  .t-card-avatar  { width: 34px; height: 34px; }
+
   .t-card-quote {
-    font-size: 0.85rem;
-    margin-bottom: 1rem;
+    font-size: clamp(0.78rem, 3.8vw, 0.85rem);
+    line-height: 1.55;
+    margin-bottom: 0.9rem;
   }
 
-  .t-card-footer {
-    gap: 0.7rem;
-    padding-top: 0.8rem;
+  .t-card-quote::before { font-size: 1.75rem; top: 8px; }
+
+  .t-card-footer  { gap: 0.7rem; padding-top: 0.8rem; }
+  .t-card-name    { font-size: 0.75rem; }
+  .t-card-brand   { font-size: 0.58rem; }
+  .t-card-star    { font-size: 0.55rem; }
+
+  /* ── dots ── */
+  .t-dots       { gap: 0.35rem; margin-top: 1.2rem; }
+  .t-dot        { width: 4px; height: 4px; }
+  .t-dot.active  { width: 12px; }
+}
+
+/* ── Extra-small phones (≤ 375px) ────────── */
+@media (max-width: 375px) {
+  .t-section {
+    padding: 3rem 4%;          /* content = 92vw  */
   }
 
-  .t-card-name {
-    font-size: 0.75rem;
+  .t-title { font-size: clamp(1.5rem, 8vw, 2rem); }
+
+  .t-featured {
+    padding: 1.2rem 1rem;
   }
 
-  .t-card-brand {
-    font-size: 0.58rem;
+  .t-featured-quote {
+    font-size: 0.88rem;
   }
 
-  .t-card-star {
-    font-size: 0.55rem;
+  /* cards nearly full-width */
+  .t-card {
+    flex: 0 0 86vw;
+    padding: 1rem 0.9rem;
   }
 
-  .t-dots {
-    gap: 0.35rem;
-    margin-top: 1.2rem;
-  }
-
-  .t-dot {
-    width: 4px;
-    height: 4px;
-  }
-
-  .t-dot.active {
-    width: 12px;
-  }
+  .t-card-quote  { font-size: 0.76rem; line-height: 1.5; }
+  .t-card-name   { font-size: 0.72rem; }
+  .t-card-brand  { font-size: 0.55rem; }
+  .t-card-footer { gap: 0.6rem; padding-top: 0.7rem; }
 }
