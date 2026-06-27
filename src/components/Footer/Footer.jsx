@@ -9,7 +9,7 @@ export default function Footer() {
         {/* Column 1 — Left */}
         <div className="footer-left">
           <a className="footer-logo" href="#hero">Vanshika.</a>
-          <p className="footer-copy">Made with ♥ by Sudhanshu Verma</p>
+          <p className="footer-copy">Made with ♥ by <strong><a href="https://www.linkedin.com/in/vermsudh/" target="_blank" rel="noreferrer">Sudhanshu Verma</a></strong></p>
           <p className="footer-location">
             <span className="footer-location-dot" />
             New Delhi, India

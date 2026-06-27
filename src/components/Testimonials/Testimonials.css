@@ -13,7 +13,7 @@
 
 /* ── Section ──────────────────────────────── */
 .t-section {
-  background: var(--midnight);
+  background: var(--dark-green);
   padding: 7rem 8%;
   position: relative;
   overflow: hidden;
@@ -345,7 +345,7 @@
   width: 60px;
   z-index: 3;
   pointer-events: none;
-  background: linear-gradient(to right, #105666 0%, transparent 100%);
+  background: linear-gradient(to right, #0A3323 0%, transparent 100%);
 }
 
 .t-carousel-outer::after {
@@ -357,7 +357,7 @@
   width: 60px;
   z-index: 3;
   pointer-events: none;
-  background: linear-gradient(to left, #105666 0%, transparent 100%);
+  background: linear-gradient(to left, #0A3323 0%, transparent 100%);
 }
 
 /* ── Carousel Track ───────────────────────── */
