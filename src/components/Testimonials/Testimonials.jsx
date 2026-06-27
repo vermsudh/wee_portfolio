@@ -1,5 +1,9 @@
 import './Testimonials.css'
 import { useState, useEffect, useRef } from 'react'
+import remysLogo from '../../assets/brand_logos/remys.png'  
+import silvishLogo from '../../assets/brand_logos/silvish.png'
+import gk from '../../assets/brand_logos/gk_logo.jpeg'
+import ayuvyaLogo         from '../../assets/brand_logos/auvya.png'
 
 export default function Testimonials() {
 
@@ -11,7 +15,7 @@ export default function Testimonials() {
       role: "Social Media Lead",
       brand: "Ayuvya Ayurveda",
       industry: "Wellness",
-      icon: "🌿",
+      icon: ayuvyaLogo,
       featured: true
     },
     {
@@ -21,7 +25,7 @@ export default function Testimonials() {
       role: "F&B Director",
       brand: "Remys",
       industry: "F&B",
-      icon: "🍽️",
+      icon: remysLogo,
       featured: false
     },
     {
@@ -31,7 +35,7 @@ export default function Testimonials() {
       role: "Brand Lead",
       brand: "Gharana Karigari",
       industry: "Fashion",
-      icon: "👗",
+      icon: gk ,
       featured: false
     },
     {
@@ -41,7 +45,7 @@ export default function Testimonials() {
       role: "Marketing Head",
       brand: "Silvish",
       industry: "Jewellery",
-      icon: "💎",
+      icon: silvishLogo,
       featured: false
     }
   ]
@@ -104,7 +108,7 @@ export default function Testimonials() {
         <div className="t-header-left">
           <p className="t-eyebrow">Kind Words</p>
           <h2 className="t-title">
-            Client <span className="t-title-script">Love</span>
+          Brand  <span className="t-title-script">Voices</span>
           </h2>
         </div>
         <p className="t-header-note">
@@ -128,7 +132,9 @@ export default function Testimonials() {
           </div>
 
           <div className="t-featured-meta">
-            <div className="t-avatar">{featured.icon}</div>
+            <div className="t-avatar">
+              <img src={featured.icon} alt={featured.brand} className="t-avatar-img" />
+            </div>
             <div className="t-stars">
               {[...Array(5)].map((_, i) => (
                 <span className="t-star" key={i}>★</span>
@@ -174,7 +180,9 @@ export default function Testimonials() {
               <div className="t-card" key={item.id}>
                 <p className="t-card-quote">{item.quote}</p>
                 <div className="t-card-footer">
-                  <div className="t-card-avatar">{item.icon}</div>
+                  <div className="t-card-avatar">
+                    <img src={item.icon} alt={item.brand} className="t-card-avatar-img" />
+                  </div>
                   <div className="t-card-info">
                     <p className="t-card-name">{item.name}</p>
                     <p className="t-card-brand">{item.brand}</p>

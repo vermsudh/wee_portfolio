@@ -187,17 +187,25 @@
 }
 
 .t-avatar {
-  width: 60px;
-  height: 60px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
-  background: linear-gradient(135deg,
-    rgba(131,153,88,0.35) 0%,
-    rgba(211,150,140,0.35) 100%);
-  border: 2px solid rgba(247,244,213,0.12);
+  background: #ffffff;
+  border: 2.5px solid rgba(247,244,213,0.18);
+  box-shadow: 0 0 0 4px rgba(211,150,140,0.12);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.t-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  padding: 6px;
 }
 
 .t-stars {
@@ -421,17 +429,25 @@
 }
 
 .t-card-avatar {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: linear-gradient(135deg,
-    rgba(131,153,88,0.3) 0%,
-    rgba(211,150,140,0.3) 100%);
+  background: #ffffff;
+  border: 2px solid rgba(247,244,213,0.14);
+  box-shadow: 0 0 0 3px rgba(211,150,140,0.10);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
+  overflow: hidden;
   flex-shrink: 0;
+}
+
+.t-card-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  padding: 4px;
 }
 
 .t-card-name {
@@ -578,9 +594,13 @@
   }
 
   .t-avatar {
-    width: 50px;
-    height: 50px;
-    font-size: 1.1rem;
+    width: 54px;
+    height: 54px;
+  }
+
+  .t-card-avatar {
+    width: 38px;
+    height: 38px;
   }
 
   .t-featured-name,
@@ -626,12 +646,6 @@
   .t-card-quote::before {
     font-size: 2rem;
     top: 10px;
-  }
-
-  .t-card-avatar {
-    width: 36px;
-    height: 36px;
-    font-size: 0.9rem;
   }
 
   .t-card-name {
@@ -693,9 +707,13 @@
   }
 
   .t-avatar {
-    width: 44px;
-    height: 44px;
-    font-size: 1rem;
+    width: 46px;
+    height: 46px;
+  }
+
+  .t-card-avatar {
+    width: 34px;
+    height: 34px;
   }
 
   .t-stars {
@@ -751,12 +769,6 @@
   .t-card-footer {
     gap: 0.7rem;
     padding-top: 0.8rem;
-  }
-
-  .t-card-avatar {
-    width: 32px;
-    height: 32px;
-    font-size: 0.8rem;
   }
 
   .t-card-name {
