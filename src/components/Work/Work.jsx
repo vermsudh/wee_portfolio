@@ -1,6 +1,5 @@
 import './Work.css'
-import useWork from './useWork'
-import { reels } from './workData'
+import { reels } from './WorkData'
 
 export default function Work() {
   const {
