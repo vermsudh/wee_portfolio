@@ -53,7 +53,7 @@ export default function Experience() {
               <span className="tl-industry-dot" />
               Wellness &amp; Ayurveda
             </span>
-            <h3 className="tl-company">Consious Chemist</h3>
+            <h3 className="tl-company">Conscious Chemist</h3>
             <p className="tl-role">Content Creation &amp; Social Media Manager</p>
             <div className="tl-detail">
               <ul className="tl-bullets">
