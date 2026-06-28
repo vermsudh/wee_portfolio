@@ -54,7 +54,7 @@ export default function Experience() {
               Wellness &amp; Ayurveda
             </span>
             <h3 className="tl-company">Conscious Chemist</h3>
-            <p className="tl-role">Content Creation &amp; Social Media Manager</p>
+            <p className="tl-role">Content Creator</p>
             <div className="tl-detail">
               <ul className="tl-bullets">
                 <li>Managed all social media operations including content planning, posting and engagement</li>
@@ -84,7 +84,7 @@ export default function Experience() {
               Wellness &amp; Ayurveda
             </span>
             <h3 className="tl-company">Ayuvya Ayurveda</h3>
-            <p className="tl-role">Content Creation &amp; Social Media Manager</p>
+            <p className="tl-role">Social Media Associate</p>
             <div className="tl-detail">
               <ul className="tl-bullets">
                 <li>Managed all social media operations including content planning, posting and engagement</li>
@@ -172,7 +172,7 @@ export default function Experience() {
               Jewellery &amp; Luxury
             </span>
             <h3 className="tl-company">Silvish</h3>
-            <p className="tl-role">Fashion Model Intern</p>
+            <p className="tl-role">Fashion Model</p>
             <div className="tl-detail">
               <ul className="tl-bullets">
                 <li>Modeled high-end jewellery collections for digital campaigns</li>
