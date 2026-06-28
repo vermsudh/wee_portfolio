@@ -39,9 +39,38 @@ export default function Experience() {
         </p>
       </div>
 
-      {/* 2. Timeline */}
+      {/* current job */}
       <div className="timeline-wrap">
         <div className="timeline-line" />
+        {/* Item 1 */}
+        <div className="tl-item">
+          <div className="tl-left">
+            <div className="tl-dot" />
+            <span className="tl-year">May 2026<br />Present</span>
+          </div>
+          <div className="tl-right">
+            <span className="tl-industry">
+              <span className="tl-industry-dot" />
+              Wellness &amp; Ayurveda
+            </span>
+            <h3 className="tl-company">Consious Chemist</h3>
+            <p className="tl-role">Content Creation &amp; Social Media Manager</p>
+            <div className="tl-detail">
+              <ul className="tl-bullets">
+                <li>Managed all social media operations including content planning, posting and engagement</li>
+                <li>Shot, edited and acted in brand content for social media platforms</li>
+                <li>Directed and executed brand shoots from concept to final content delivery</li>
+              </ul>
+              <div className="tl-tags">
+                <span className="tl-tag">Strategy</span>
+                <span className="tl-tag">Reels</span>
+                <span className="tl-tag">Shoot Direction</span>
+                <span className="tl-tag">On-Camera</span>
+              </div>
+            </div>
+          </div>
+          <span className="tl-arrow">→</span>
+        </div>
 
         {/* Item 1 */}
         <div className="tl-item">

@@ -54,9 +54,9 @@ export default function About() {
         <div className="about-left" ref={leftRef}>
           <p className="about-col-heading">Who I Am</p>
           <p className="about-para">
-            hi im vanshika, a psychology graduate from university of delhi.
-            i love being infront of the camera, getting stories to life,
-            dancing, acting and building brands
+          Psychology graduate turned content creator and on-camera talent. 
+          I love bringing stories to life — through reels, brand shoots, dancing, acting, 
+          and building brand voices that actually connect.
           </p>
           <div className="about-stats">
             <div className="stat-box">
@@ -91,9 +91,8 @@ export default function About() {
         <div className="about-right" ref={rightRef}>
           <p className="about-col-heading">What Drives Me</p>
           <p className="about-para">
-            Ive worked across various different niches like beauty,
-            wellness, health, F&amp;B, lifestyle, fashion &amp; jewellery
-            and more to come :)
+          what excites me most is range — one week im shooting an ayurveda campaign, the next im on set for a jewellery shoot, and the week after that im writing captions for a wedding page. beauty, wellness, F&B, fashion, jewellery, weddings — different worlds, different audiences, same energy from me. i think thats what makes the work interesting: no two briefs ever feel the same,
+           and i get to keep learning what makes each industry tick.
           </p>
           <div className="about-traits">
             <span className="trait"><Film size={13} strokeWidth={1.8} /> Reel Directing</span>
