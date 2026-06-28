@@ -4,45 +4,51 @@ import silvish2     from '../../assets/reels/silvish_2.mp4'
 import savorworks   from '../../assets/reels/savorworks.mp4'
 import kundaliTalks from '../../assets/reels/kundali_talks.mp4'
 
+import silvishThumb      from '../../assets/thumbnails/silvish.png'
+import paparizzaThumb    from '../../assets/thumbnails/paparizza.jpg'
+import silvish2Thumb     from '../../assets/thumbnails/silvish_2.png'
+import savorworksThumb   from '../../assets/thumbnails/savorworks.jpg'
+import kundaliTalksThumb from '../../assets/thumbnails/kundali_talks.jpg'
+
 export const reels = [
   {
     id: 1,
     brand: "Silvish",
     title: "Jewellery Campaign",
-    bgGradient: "linear-gradient(160deg, #4a6b5a 0%, #2d4a3a 50%, #0d2018 100%)",
     instaUrl: "YOUR_INSTAGRAM_REEL_URL_5",
-    videoSrc: silvish
+    videoSrc: silvish,
+    thumbnailSrc: silvishThumb
   },
   {
     id: 2,
     brand: "Paparizza",
     title: "Food & Vibe Reel",
-    bgGradient: "linear-gradient(160deg, #8b5e3c 0%, #6b3e28 50%, #3d1f10 100%)",
     instaUrl: "YOUR_INSTAGRAM_REEL_URL_2",
-    videoSrc: paparizza
+    videoSrc: paparizza,
+    thumbnailSrc: paparizzaThumb
   },
   {
     id: 3,
     brand: "Silvish",
     title: "Jewellery Campaign",
-    bgGradient: "linear-gradient(160deg, #D3968C 0%, #D3968C 50%, #D3968C 100%)",
     instaUrl: "YOUR_INSTAGRAM_REEL_URL_5",
-    videoSrc: silvish2
+    videoSrc: silvish2,
+    thumbnailSrc: silvish2Thumb
   },
   {
     id: 4,
     brand: "Savorworks",
     title: "Brand Story Reel",
-    bgGradient: "linear-gradient(160deg,rgb(230, 146, 62) 0%,rgb(215, 147, 44) 50%,rgb(214, 159, 32) 100%)",
     instaUrl: "YOUR_INSTAGRAM_REEL_URL_3",
-    videoSrc: savorworks
+    videoSrc: savorworks,
+    thumbnailSrc: savorworksThumb
   },
   {
     id: 5,
     brand: "Kundali Talks",
     title: "Brand Campaign Reel",
-    bgGradient: "linear-gradient(160deg, #2d5a3d 0%, #1a3d2a 50%, #0d2418 100%)",
     instaUrl: "YOUR_INSTAGRAM_REEL_URL_1",
-    videoSrc: kundaliTalks
+    videoSrc: kundaliTalks,
+    thumbnailSrc: kundaliTalksThumb
   }
 ]

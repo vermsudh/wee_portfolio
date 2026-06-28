@@ -1,13 +1,13 @@
 import './Work.css'
 import useWork from './useWork'
-import { reels } from './WorkData'
+import { reels } from './workData'
 
 export default function Work() {
   const {
-    activeReel, triggerType, isMuted,
+    activeReel, isMuted,
     sectionRef, stripRef,
-    handlePlay, handleClose, handleMuteToggle,
-    registerVideoRef, handleCardMouseEnter, handleCardMouseLeave,
+    handleMuteToggle,
+    registerVideoRef,
     scrollLeft, scrollRight,
     handleMouseDown, handleMouseMove, handleMouseUp, handleMouseLeave
   } = useWork()
@@ -36,72 +36,32 @@ export default function Work() {
           onMouseLeave={handleMouseLeave}
         >
           {reels.map(reel => (
-            <div className="phone-card" key={reel.id}>
+            <div className="phone-card" key={reel.id} data-reel-id={reel.id}>
 
               {/* A. Phone shell */}
-              <div
-                className="phone-shell"
-                onMouseEnter={() => handleCardMouseEnter(reel.id)}
-                onMouseLeave={() => handleCardMouseLeave(reel.id)}
-              >
+              <div className="phone-shell">
                 <div className="phone-screen">
 
                   <div className="phone-island" />
 
                   <div className="phone-content">
 
-                    {/* Thumbnail — resting state */}
-                    <div
-                      className={"phone-thumbnail" + (activeReel === reel.id ? " hidden" : "")}
-                    >
-                      <div
-                        className="thumb-bg"
-                        style={{ background: reel.bgGradient }}
-                      />
-                      <div className="thumb-overlay" />
-                      <button
-                        className="play-btn"
-                        onClick={() => handlePlay(reel.id)}
-                      >
-                        <div className="play-icon" />
-                      </button>
-                      <span className="tap-label">Tap to play</span>
-                      <div className="phone-info-inner">
-                        <p className="phone-reel-title">{reel.title}</p>
-                      </div>
-                    </div>
+                    <video
+                      ref={(el) => registerVideoRef(reel.id, el)}
+                      src={reel.videoSrc}
+                      poster={reel.thumbnailSrc}
+                      playsInline
+                      preload="metadata"
+                      loop
+                      muted={reel.id === activeReel ? isMuted : true}
+                      className="phone-video"
+                    />
 
-                    {/* Video — active state */}
-                    <div
-                      className={"phone-embed" + (activeReel === reel.id ? " active" : "")}
-                    >
-                      <video
-                        ref={(el) => registerVideoRef(reel.id, el)}
-                        src={reel.videoSrc}
-                        playsInline
-                        preload="metadata"
-                        loop
-                        muted={triggerType === 'hover' || (triggerType === 'click' && isMuted)}
-                        className="phone-video"
-                        onClick={() => handlePlay(reel.id)}
-                      />
-                      {activeReel === reel.id && triggerType === 'click' && (
-                        <div className="video-controls">
-                          <button
-                            className="video-mute-btn"
-                            onClick={handleMuteToggle}
-                          >
-                            {isMuted ? 'Unmute' : 'Mute'}
-                          </button>
-                          <button
-                            className="embed-close-btn"
-                            onClick={handleClose}
-                          >
-                            ✕ Close
-                          </button>
-                        </div>
-                      )}
-                    </div>
+                    {activeReel === reel.id && (
+                      <button className="video-mute-btn" onClick={handleMuteToggle}>
+                        {isMuted ? 'Unmute' : 'Mute'}
+                      </button>
+                    )}
 
                   </div>
                 </div>

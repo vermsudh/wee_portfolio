@@ -1,24 +1,18 @@
 import { useState, useEffect, useRef } from 'react'
+import { reels } from './workData'
 
 export default function useWork() {
 
   // ── State ──────────────────────────────────
-  const [activeReel,  setActiveReel]  = useState(null)
-  const [triggerType, setTriggerType] = useState(null)  // 'hover' | 'click' | null
-  const [isMuted,     setIsMuted]     = useState(false)
+  const [activeReel, setActiveReel] = useState(null)
+  const [isMuted,    setIsMuted]    = useState(true)
 
   // ── Refs ───────────────────────────────────
   const stripRef   = useRef(null)
   const sectionRef = useRef(null)
-  const videoRefs  = useRef({})  // map: reel id -> <video> element
+  const videoRefs  = useRef({})
 
-  // Mirror of activeReel/triggerType as refs for use in event handlers
-  // (avoids stale closures when multiple events fire rapidly)
-  const currentActiveIdRef      = useRef(null)
-  const currentActiveTriggerRef = useRef(null)
-  // Tracks the card that was just click-closed; prevents DOM-mutation-triggered
-  // mouseenter from immediately re-activating hover on the same card
-  const justClosedIdRef         = useRef(null)
+  const currentActiveIdRef = useRef(null)
 
   // ── Drag refs ──────────────────────────────
   const isDown      = useRef(false)
@@ -42,62 +36,19 @@ export default function useWork() {
     }
   }
 
-  function activateVideo(id, type, muted) {
+  function activateVideo(id, muted) {
     stopCurrentVideo()
-    currentActiveIdRef.current      = id
-    currentActiveTriggerRef.current = type
+    currentActiveIdRef.current = id
     const vid = videoRefs.current[id]
     if (vid) {
       vid.muted = muted
       vid.play().catch(() => {})
     }
     setActiveReel(id)
-    setTriggerType(type)
     setIsMuted(muted)
   }
 
-  function deactivateVideo() {
-    stopCurrentVideo()
-    currentActiveIdRef.current      = null
-    currentActiveTriggerRef.current = null
-    setActiveReel(null)
-    setTriggerType(null)
-    setIsMuted(false)
-  }
-
-  // ── Hover (desktop pointer devices only) ───
-  function handleCardMouseEnter(id) {
-    if (isDown.current) return
-    // Don't interrupt a click session on the same card
-    if (currentActiveIdRef.current === id && currentActiveTriggerRef.current === 'click') return
-    // Block re-hover on the card that was just click-closed (DOM mutations can fire
-    // a spurious mouseenter on the same card when the controls are removed)
-    if (justClosedIdRef.current === id) return
-    activateVideo(id, 'hover', true)
-  }
-
-  function handleCardMouseLeave(id) {
-    // Mouse genuinely left this card — clear the just-closed guard
-    if (justClosedIdRef.current === id) justClosedIdRef.current = null
-    if (currentActiveTriggerRef.current !== 'hover') return
-    if (currentActiveIdRef.current !== id) return
-    deactivateVideo()
-  }
-
-  // ── Click Play / Close ─────────────────────
-  function handlePlay(id) {
-    // Clicking a card already in click mode does nothing
-    if (currentActiveIdRef.current === id && currentActiveTriggerRef.current === 'click') return
-    activateVideo(id, 'click', false)
-  }
-
-  function handleClose() {
-    // Record which card is closing so mouseenter doesn't immediately re-hover it
-    justClosedIdRef.current = currentActiveIdRef.current
-    deactivateVideo()
-  }
-
-  // ── Mute toggle (click sessions only) ──────
+  // ── Mute toggle ────────────────────────────
   function handleMuteToggle() {
     const newMuted = !isMuted
     setIsMuted(newMuted)
@@ -158,7 +109,7 @@ export default function useWork() {
     isDown.current = false
   }
 
-  // ── Scroll reveal ──────────────────────────
+  // ── Scroll reveal + first card autoplay ────
   useEffect(() => {
     const section = sectionRef.current
     if (!section) return
@@ -168,6 +119,9 @@ export default function useWork() {
         if (entry.isIntersecting) {
           section.classList.add('work-visible')
           observer.unobserve(section)
+          if (currentActiveIdRef.current === null) {
+            activateVideo(reels[0].id, true)
+          }
         }
       },
       { threshold: 0.1 }
@@ -175,21 +129,55 @@ export default function useWork() {
 
     observer.observe(section)
     return () => observer.disconnect()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  // ── Per-card visibility observer ───────────
+  useEffect(() => {
+    const strip = stripRef.current
+    if (!strip) return
+
+    // Persists latest intersection ratio per card across observer callbacks
+    const ratios = new Map()
+
+    const cardObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          const id = Number(entry.target.dataset.reelId)
+          ratios.set(id, entry.intersectionRatio)
+        })
+
+        let bestId = null
+        let bestRatio = 0.5
+        ratios.forEach((ratio, id) => {
+          if (ratio > bestRatio) {
+            bestRatio = ratio
+            bestId = id
+          }
+        })
+
+        if (bestId === null) return
+        if (bestId === currentActiveIdRef.current) return
+        activateVideo(bestId, true)
+      },
+      { threshold: [0, 0.25, 0.5, 0.6, 0.75, 1] }
+    )
+
+    const cards = strip.querySelectorAll('.phone-card')
+    cards.forEach(card => cardObserver.observe(card))
+
+    return () => cardObserver.disconnect()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // ── Return ─────────────────────────────────
   return {
     activeReel,
-    triggerType,
     isMuted,
     sectionRef,
     stripRef,
-    handlePlay,
-    handleClose,
     handleMuteToggle,
     registerVideoRef,
-    handleCardMouseEnter,
-    handleCardMouseLeave,
     scrollLeft,
     scrollRight,
     handleMouseDown,

@@ -266,114 +266,6 @@
   overflow: hidden;
 }
 
-/* ── Thumbnail State ──────────────────────── */
-.phone-thumbnail {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  transition: opacity 0.3s;
-}
-
-.phone-thumbnail.hidden {
-  display: none;
-}
-
-.thumb-bg {
-  position: absolute;
-  inset: 0;
-}
-
-.thumb-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top,
-    rgba(0,0,0,0.8) 0%,
-    rgba(0,0,0,0.1) 50%,
-    transparent 100%);
-}
-
-/* ── Play Button ──────────────────────────── */
-.play-btn {
-  position: relative;
-  z-index: 3;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.15);
-  border: 2px solid rgba(255,255,255,0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(8px);
-  cursor: pointer;
-  transition: all 0.25s ease;
-  margin-bottom: 1rem;
-}
-
-.play-btn:hover {
-  background: #D3968C;
-  border-color: #D3968C;
-  transform: scale(1.1);
-  box-shadow: 0 8px 24px rgba(211,150,140,0.5);
-}
-
-.play-icon {
-  width: 0;
-  height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 16px solid white;
-  margin-left: 3px;
-}
-
-/* ── Tap Label ────────────────────────────── */
-.tap-label {
-  position: relative;
-  z-index: 3;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.55);
-}
-
-/* ── Phone Info Inner ─────────────────────── */
-.phone-info-inner {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1rem;
-  z-index: 3;
-}
-
-.phone-reel-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #fff;
-  line-height: 1.3;
-  margin: 0;
-}
-
-/* ── Embed State ──────────────────────────── */
-.phone-embed {
-  display: none;
-  width: 100%;
-  height: 100%;
-  position: relative;
-  aspect-ratio: 9 / 16;
-}
-
-.phone-embed.active {
-  display: block;
-}
-
 /* ── Video ────────────────────────────────── */
 .phone-video {
   width: 100%;
@@ -382,20 +274,13 @@
   display: block;
 }
 
-/* ── In-video controls (click mode only) ──── */
-.video-controls {
+/* ── Mute button ──────────────────────────── */
+.video-mute-btn {
   position: absolute;
   bottom: 1rem;
-  left: 0;
-  right: 0;
-  display: flex;
-  gap: 0.5rem;
-  justify-content: center;
-  align-items: center;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 10;
-}
-
-.video-mute-btn {
   background: rgba(0,0,0,0.45);
   border: 1px solid rgba(255,255,255,0.25);
   color: rgba(255,255,255,0.8);
@@ -410,33 +295,12 @@
   transition: all 0.2s;
   backdrop-filter: blur(6px);
   min-height: 28px;
+  white-space: nowrap;
 }
 
 .video-mute-btn:hover {
   background: rgba(211,150,140,0.3);
   border-color: rgba(211,150,140,0.5);
-  color: #D3968C;
-}
-
-.embed-close-btn {
-  background: rgba(0,0,0,0.45);
-  border: 1px solid rgba(255,255,255,0.25);
-  color: rgba(255,255,255,0.8);
-  padding: 0.3rem 0.8rem;
-  border-radius: 100px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.65rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.25s;
-  backdrop-filter: blur(6px);
-  min-height: 28px;
-}
-
-.embed-close-btn:hover {
-  background: rgba(211,150,140,0.2);
-  border-color: rgba(211,150,140,0.4);
   color: #D3968C;
 }
 
@@ -677,27 +541,6 @@
     width: 88px;
     height: 26px;
     border-radius: 16px;
-  }
-
-  .play-btn {
-    width: 48px;
-    height: 48px;
-    margin-bottom: 0.8rem;
-  }
-
-  .play-icon {
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
-    border-left: 14px solid white;
-    margin-left: 2px;
-  }
-
-  .tap-label {
-    font-size: 0.58rem;
-  }
-
-  .phone-reel-title {
-    font-size: 0.78rem;
   }
 
   .phone-label-brand {
